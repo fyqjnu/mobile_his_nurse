@@ -10,6 +10,98 @@
         android:layout_height="fill_parent"
         android:weightSum="5"
         >
+        
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:background="#1ebf7c"
+            android:padding="5dp"
+            android:weightSum="2"
+            >
+            
+            <LinearLayout 
+               
+                android:orientation="vertical"
+                android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+                <LinearLayout 
+                     android:id="@+id/home_ll_time_container"
+                     android:orientation="vertical"
+                     android:layout_height="fill_parent" 
+                     android:gravity="center"
+                    android:background="#c6efdd"
+                    android:layout_width="wrap_content"
+                    >
+            <TextView 
+                android:gravity="center"
+                android:id="@+id/home_tv_time"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="显示时间"
+                android:textSize="30sp"
+                android:textColor="#1ebf7c"
+                />
+             <TextView 
+                android:gravity="center"
+                android:id="@+id/home_tv_date"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="显示时间"
+                android:textSize="15sp"
+                android:textColor="#1ebf7c"
+                />
+             </LinearLayout>
+            </LinearLayout>
+            
+            <RelativeLayout 
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="fill_parent"
+                android:padding="10dp"
+                >
+                <TextView 
+                    android:id="@+id/home_tv_today_task"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="今日任务"
+                    android:textSize="20sp"
+                    android:textColor="#fff"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    />
+                <ImageView 
+                    android:padding="5dp"
+                    android:src="@drawable/today_task"
+                    android:id="@+id/home_iv_today_task"
+                    android:layout_width="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/home_tv_today_task"
+                    android:background="#c6efdd"
+                    />
+                <TextView 
+                    android:id="@+id/home_tv_task_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30"
+                    android:textColor="#fff"
+                    android:background="#f00"
+                    android:textSize="20sp"
+                    android:layout_alignRight="@id/home_iv_today_task"
+                    android:layout_alignTop="@id/home_iv_today_task"
+                    android:layout_marginRight="-10dp"
+                    android:layout_marginTop="-10dp"
+                    />
+            </RelativeLayout>
+            
+            
+        </LinearLayout>
+        
         <LinearLayout 
             android:padding="3dp"
             android:orientation="horizontal"
