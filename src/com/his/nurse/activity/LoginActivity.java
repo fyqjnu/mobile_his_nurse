@@ -1,4 +1,7 @@
-package com.his.nurse;
+package com.his.nurse.activity;
+
+import com.his.nurse.R;
+import com.his.nurse.R.layout;
 
 import android.os.Bundle;
 import android.app.Activity;
