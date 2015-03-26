@@ -16,5 +16,9 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    <style name="tv_home_item">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#7e7e7e</item>
+    </style>
 
 </resources>

@@ -2,15 +2,189 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".LoginActivity" >
+    
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="5"
+        >
+        <LinearLayout 
+            android:padding="3dp"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="2"
+            >
+            <LinearLayout 
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center|clip_horizontal"
+                >
+                <ImageView 
+                    android:id="@+id/home_iv_infusion"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/infusion_monitor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    />
+                <TextView 
+                    android:id="@+id/home_tv_infusion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="输液监控"
+                    style="@style/tv_home_item"
+                    />
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center|clip_horizontal"
+                >
+                <ImageView 
+                    android:id="@+id/home_iv_drug_verify"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/drug_verify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    />
+                <TextView 
+                    android:id="@+id/home_tv_drug_verify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="药品核对"
+                    style="@style/tv_home_item"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:padding="3dp"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="2"
+            >
+            <LinearLayout 
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center|clip_horizontal"
+                >
+                <ImageView 
+                    android:id="@+id/home_iv_sign_collect"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/sign_collect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    />
+                <TextView 
+                    android:id="@+id/home_tv_sign_collect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="体征采集"
+                    style="@style/tv_home_item"
+                    />
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center|clip_horizontal"
+                >
+                <ImageView 
+                    android:id="@+id/home_iv_advice_perform"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/advice_perform"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    />
+                <TextView 
+                    android:id="@+id/home_tv_advice_perform"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="医嘱执行"
+                    style="@style/tv_home_item"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:padding="3dp"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="2"
+            >
+            <LinearLayout 
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center|clip_horizontal"
+                >
+                <ImageView 
+                    android:id="@+id/home_iv_patient_info"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/patient_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    />
+                <TextView 
+                    android:id="@+id/home_tv_patient_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="病人信息"
+                    style="@style/tv_home_item"
+                    />
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center|clip_horizontal"
+                >
+                <ImageView 
+                    android:id="@+id/home_iv_nurse_round"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/nurse_round"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    />
+                <TextView 
+                    android:id="@+id/home_tv_nurse_round"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="护理查房"
+                    style="@style/tv_home_item"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        
+        
+        
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+
 
 </RelativeLayout>
