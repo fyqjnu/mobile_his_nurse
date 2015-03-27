@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.his.nurse.R;
 import com.his.nurse.util.ILog;
+import com.his.nurse.widget.Header;
 
 /**
  * 主界面
@@ -76,6 +77,15 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
         ILog.d("r:" + r);
         ivTodayTask.setBackgroundDrawable(new BitmapDrawable(createRoundBitmap(r)));
         
+        Header header = (Header) findViewById(R.id.home_header);
+        header.setTitle("移动医护系统护士端");
+        header.setRightImageViewRes(R.drawable.option, new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                ILog.d("更多选项");
+            }
+        });
     }
 
     private Bitmap createRoundBitmap(int h) {
