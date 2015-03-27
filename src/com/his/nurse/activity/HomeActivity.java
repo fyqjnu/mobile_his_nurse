@@ -11,11 +11,14 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.his.nurse.R;
@@ -28,6 +31,8 @@ import com.his.nurse.widget.Header;
 public class HomeActivity extends BaseActivity implements OnClickListener {
 
     
+    private Header header;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,15 +82,31 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
         ILog.d("r:" + r);
         ivTodayTask.setBackgroundDrawable(new BitmapDrawable(createRoundBitmap(r)));
         
-        Header header = (Header) findViewById(R.id.home_header);
+        header = (Header) findViewById(R.id.home_header);
         header.setTitle("移动医护系统护士端");
         header.setRightImageViewRes(R.drawable.option, new OnClickListener() {
             
             @Override
             public void onClick(View v) {
                 ILog.d("更多选项");
+                showOption();
             }
         });
+    }
+    
+    private void showOption() {
+        View view = LayoutInflater.from(this).inflate(R.layout.option, null);
+        view.measure(0, 0);
+        PopupWindow pop = new PopupWindow(view, view.getMeasuredWidth(), view.getMeasuredHeight(), true);
+        pop.setOutsideTouchable(false);
+        pop.setTouchable(true);
+        pop.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        
+        view.findViewById(R.id.option_ll_change_password).setOnClickListener(this);
+        view.findViewById(R.id.option_ll_setting).setOnClickListener(this);
+        view.findViewById(R.id.option_ll_sign_out).setOnClickListener(this);
+        
+        pop.showAsDropDown(header.getRightView());
     }
 
     private Bitmap createRoundBitmap(int h) {
@@ -102,6 +123,15 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
         switch (v.getId()) {
         case R.id.home_iv_today_task:
             ILog.d("今日任务");
+            
+            break;
+        case R.id.option_ll_change_password:
+            ILog.d("改变密码");
+            break;
+        case R.id.option_ll_setting:
+            
+            break;
+        case R.id.option_ll_sign_out:
             
             break;
 

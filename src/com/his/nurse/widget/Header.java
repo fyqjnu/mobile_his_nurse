@@ -1,7 +1,5 @@
 package com.his.nurse.widget;
 
-import com.his.nurse.util.ILog;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
@@ -10,11 +8,15 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.his.nurse.util.ILog;
+
 /**
  * 页面标题公用控件
  */
 public class Header extends RelativeLayout {
     
+    private View rightView;
+    private View leftView;
 
     public Header(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -59,6 +61,7 @@ public class Header extends RelativeLayout {
         ivLp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         addView(view, ivLp);
         view.setOnClickListener(listener);
+        rightView = view;
     }
 
     public void setRightImageViewRes(int res, OnClickListener listener) {
@@ -67,12 +70,17 @@ public class Header extends RelativeLayout {
         setRightView(iv, listener);
     }
     
+    public View getRightView() {
+        return rightView;
+    }
+    
     public void setLeftView(View view, OnClickListener listener) {
         RelativeLayout.LayoutParams ivLp = new RelativeLayout.LayoutParams(-2, -2);
         ivLp.addRule(RelativeLayout.CENTER_VERTICAL);
         ivLp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
         addView(view, ivLp);
         view.setOnClickListener(listener);
+        leftView = view;
     }
     
     public void setLeftImageVewRes(int res, OnClickListener listener) {
