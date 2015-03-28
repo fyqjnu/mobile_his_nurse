@@ -70,6 +70,7 @@
                 android:layout_weight="1"
                 android:layout_height="fill_parent"
                 android:padding="10dp"
+                android:background="@drawable/home_item_selector"
                 >
                 <TextView 
                     android:id="@+id/home_tv_today_task"
@@ -114,10 +115,12 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.1"
             android:weightSum="2"
             >
             <LinearLayout 
+                android:id="@+id/home_ll_infusion"
+                android:background="@drawable/home_item_selector"
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
@@ -142,6 +145,8 @@
             </LinearLayout>
             
             <LinearLayout 
+                 android:background="@drawable/home_item_selector"
+                android:id="@+id/home_ll_drug_verify"
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
@@ -171,15 +176,17 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.1"
             android:weightSum="2"
             >
             <LinearLayout 
+                android:background="@drawable/home_item_selector"
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:gravity="center|clip_horizontal"
+                android:id="@+id/home_ll_sign_collect"
                 >
                 <ImageView 
                     android:id="@+id/home_iv_sign_collect"
@@ -199,11 +206,13 @@
             </LinearLayout>
             
             <LinearLayout 
+                android:background="@drawable/home_item_selector"
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:gravity="center|clip_horizontal"
+                 android:id="@+id/home_ll_advice_perform"
                 >
                 <ImageView 
                     android:id="@+id/home_iv_advice_perform"
@@ -228,15 +237,17 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.1"
             android:weightSum="2"
             >
             <LinearLayout 
+                android:background="@drawable/home_item_selector"
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:gravity="center|clip_horizontal"
+                android:id="@+id/home_ll_patient_info"
                 >
                 <ImageView 
                     android:id="@+id/home_iv_patient_info"
@@ -256,11 +267,13 @@
             </LinearLayout>
             
             <LinearLayout 
+                android:background="@drawable/home_item_selector"
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:gravity="center|clip_horizontal"
+                android:id="@+id/home_ll_nurse_round"
                 >
                 <ImageView 
                     android:id="@+id/home_iv_nurse_round"
