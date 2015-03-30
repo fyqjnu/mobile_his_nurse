@@ -3,6 +3,10 @@ package com.his.nurse.activity;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
@@ -35,6 +39,9 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
     private Header header;
     private PopupWindow pop;
     private TextView tvTaskNum;
+    private TextView tvTime;
+    private TextView tvDate;
+    private BroadcastReceiver timeReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +50,11 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
         setContentView(R.layout.activity_main);
         
         initView();
+        
+        
+        IntentFilter filter = new IntentFilter("android.intent.action.TIME_TICK");
+        timeReceiver = new TimeReceiver();
+        registerReceiver(timeReceiver, filter);
     }
     
     private String getTime() {
@@ -54,13 +66,17 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
         SimpleDateFormat fmt = new SimpleDateFormat("M月d日 E");
         return fmt.format(new Date());
     }
+    
+    private void setTime() {
+        tvTime.setText(getTime());
+        tvDate.setText(getDate());
+    }
 
     private void initView() {
         
-        TextView tvTime = (TextView) findViewById(R.id.home_tv_time);
-        tvTime.setText(getTime());
-        TextView tvDate = (TextView) findViewById(R.id.home_tv_date);
-        tvDate.setText(getDate());
+        tvTime = (TextView) findViewById(R.id.home_tv_time);
+        tvDate = (TextView) findViewById(R.id.home_tv_date);
+        setTime();
         tvTime.measure(0, 0);
         tvDate.measure(0, 0);
         ILog.d(tvDate.getMeasuredWidth());
@@ -75,8 +91,9 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
         Bitmap bg = createRoundBitmap(h, 0xcff6efdd);
         llTimeContainerLayout.setBackgroundDrawable(new BitmapDrawable(bg));
         
+        
+        findViewById(R.id.home_rl_today_task).setOnClickListener(this);
         ImageView ivTodayTask = (ImageView) findViewById(R.id.home_iv_today_task);
-        ivTodayTask.setOnClickListener(this);
         ivTodayTask.measure(0, 0);
         int r = ivTodayTask.getMeasuredHeight();
         int p = 50;
@@ -115,7 +132,7 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
         tvTaskNum.measure(0, 0);
         int d = (int) (Math.max(tvTaskNum.getMeasuredWidth(), tvTaskNum.getMeasuredHeight()) + 5*getResources().getDisplayMetrics().density);
         Bitmap bm = createRoundBitmap(d, Color.RED);
-        tvTaskNum.setBackground(new BitmapDrawable(bm));
+        tvTaskNum.setBackgroundDrawable(new BitmapDrawable(bm));
         
         tvTaskNum.getLayoutParams().width = d;
         tvTaskNum.getLayoutParams().height = d;
@@ -155,8 +172,10 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.home_iv_today_task:
+        case R.id.home_rl_today_task:
             ILog.d("今日任务");
+            Intent intent = new Intent(this, TodayTaskActivity.class);
+            startActivity(intent);
             break;
         case R.id.option_ll_change_password:
             ILog.d("改变密码");
@@ -180,6 +199,22 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
         default:
             break;
         }
+    }
+    
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(timeReceiver);
+    }
+    
+    class TimeReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            ILog.d("action:" + intent.getAction());
+            setTime();
+        }
+        
     }
     
 }

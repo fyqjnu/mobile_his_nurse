@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.his.nurse.R;
 import com.his.nurse.util.ILog;
 
 /**
@@ -36,7 +37,7 @@ public class Header extends RelativeLayout {
     private void init() {
          setBackgroundColor(0xff54d091);
          int p = (int) (getResources().getDisplayMetrics().density * 10);
-         setPadding(p, 0, p, 0);
+         setPadding(p, p, p, p);
     }
     
     public void setTitle(String text) {
@@ -56,11 +57,12 @@ public class Header extends RelativeLayout {
     }
     
     public void setRightView(View view, OnClickListener listener) {
-        RelativeLayout.LayoutParams ivLp = new RelativeLayout.LayoutParams(-2, -2);
+        RelativeLayout.LayoutParams ivLp = new RelativeLayout.LayoutParams(-2, -1);
         ivLp.addRule(RelativeLayout.CENTER_VERTICAL);
         ivLp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         addView(view, ivLp);
         view.setOnClickListener(listener);
+        view.setBackgroundResource(R.drawable.pressed_selector);
         rightView = view;
     }
 
@@ -75,7 +77,7 @@ public class Header extends RelativeLayout {
     }
     
     public void setLeftView(View view, OnClickListener listener) {
-        RelativeLayout.LayoutParams ivLp = new RelativeLayout.LayoutParams(-2, -2);
+        RelativeLayout.LayoutParams ivLp = new RelativeLayout.LayoutParams(-2, -1);
         ivLp.addRule(RelativeLayout.CENTER_VERTICAL);
         ivLp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
         addView(view, ivLp);

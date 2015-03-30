@@ -24,7 +24,6 @@
             android:layout_height="0dp"
             android:layout_weight="1.3"
             android:background="#1ebf7c"
-            android:padding="5dp"
             android:weightSum="2"
             >
             
@@ -65,13 +64,23 @@
              </LinearLayout>
             </LinearLayout>
             
-            <RelativeLayout 
+            <RelativeLayout
+                android:id="@+id/home_rl_today_task"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="fill_parent"
-                android:padding="10dp"
                 android:background="@drawable/home_item_selector"
                 >
+                <ImageView 
+                    android:padding="5dp"
+                    android:src="@drawable/today_task"
+                    android:id="@+id/home_iv_today_task"
+                    android:layout_width="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_height="wrap_content"
+                    android:background="#c6efdd"
+                    
+                    />
                 <TextView 
                     android:id="@+id/home_tv_today_task"
                     android:layout_width="wrap_content"
@@ -79,18 +88,8 @@
                     android:text="今日任务"
                     android:textSize="20sp"
                     android:textColor="#fff"
-                    android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    />
-                <ImageView 
-                    android:padding="5dp"
-                    android:src="@drawable/today_task"
-                    android:id="@+id/home_iv_today_task"
-                    android:layout_width="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@id/home_tv_today_task"
-                    android:background="#c6efdd"
+                    android:layout_below="@id/home_iv_today_task"
                     />
                 <TextView 
                     android:id="@+id/home_tv_task_num"
