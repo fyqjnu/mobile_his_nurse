@@ -37,7 +37,7 @@ public class Header extends RelativeLayout {
     private void init() {
          setBackgroundColor(0xff54d091);
          int p = (int) (getResources().getDisplayMetrics().density * 10);
-         setPadding(p, 0, p, 0);
+         setPadding(p, p, p, p);
     }
     
     public void setTitle(String text) {

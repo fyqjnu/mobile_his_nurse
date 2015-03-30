@@ -91,8 +91,9 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
         Bitmap bg = createRoundBitmap(h, 0xcff6efdd);
         llTimeContainerLayout.setBackgroundDrawable(new BitmapDrawable(bg));
         
+        
+        findViewById(R.id.home_rl_today_task).setOnClickListener(this);
         ImageView ivTodayTask = (ImageView) findViewById(R.id.home_iv_today_task);
-        ivTodayTask.setOnClickListener(this);
         ivTodayTask.measure(0, 0);
         int r = ivTodayTask.getMeasuredHeight();
         int p = 50;
@@ -131,7 +132,7 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
         tvTaskNum.measure(0, 0);
         int d = (int) (Math.max(tvTaskNum.getMeasuredWidth(), tvTaskNum.getMeasuredHeight()) + 5*getResources().getDisplayMetrics().density);
         Bitmap bm = createRoundBitmap(d, Color.RED);
-        tvTaskNum.setBackground(new BitmapDrawable(bm));
+        tvTaskNum.setBackgroundDrawable(new BitmapDrawable(bm));
         
         tvTaskNum.getLayoutParams().width = d;
         tvTaskNum.getLayoutParams().height = d;
@@ -171,8 +172,10 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.home_iv_today_task:
+        case R.id.home_rl_today_task:
             ILog.d("今日任务");
+            Intent intent = new Intent(this, TodayTaskActivity.class);
+            startActivity(intent);
             break;
         case R.id.option_ll_change_password:
             ILog.d("改变密码");
