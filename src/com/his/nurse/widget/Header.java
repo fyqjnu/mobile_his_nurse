@@ -82,6 +82,7 @@ public class Header extends RelativeLayout {
         ivLp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
         addView(view, ivLp);
         view.setOnClickListener(listener);
+        view.setBackgroundResource(R.drawable.pressed_selector);
         leftView = view;
     }
     

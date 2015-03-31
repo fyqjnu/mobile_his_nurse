@@ -79,7 +79,7 @@ public class TabIndicator extends LinearLayout implements OnClickListener {
     private TextView createTextView() {
         TextView tv = new TextView(getContext());
         tv.setTextSize(20);
-        tv.getPaint().setFakeBoldText(true);
+//        tv.getPaint().setFakeBoldText(true);
         tv.setGravity(Gravity.CENTER);
         return tv;
     }
