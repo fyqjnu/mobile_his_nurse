@@ -194,8 +194,13 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
             
         case R.id.home_ll_infusion:
             ILog.d("输液监控");
+            Intent infusion_intent = new Intent(this, InfusionMonitorActivity.class);
+            startActivity(infusion_intent);
             break;
-
+        case R.id.home_ll_sign_collect:
+        	ILog.d("体征采集");
+        	Intent sign_collect_intent = new Intent(this, SignsCollectActivity.class);
+            startActivity(sign_collect_intent);
         default:
             break;
         }

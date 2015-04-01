@@ -2,5 +2,10 @@
 <resources>
     <color name="grey">#777</color>
     <color name="black">#000</color>
+    <color name="white">#fff</color>
+    
+    <!-- Fbuuton openlibrary -->
+    <color name="fbutton_default_color">#3eadeb</color>
+    <color name="fbutton_default_shadow_color">#ff3493c8</color>
     
 </resources>
