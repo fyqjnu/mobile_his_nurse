@@ -1,23 +1,515 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res/com.his.nurse"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#e1e1e1"
     android:orientation="vertical" >
-    <com.his.nurse.widget.Header 
+
+    <com.his.nurse.widget.Header
+        android:id="@+id/in_and_out_amount_collect_header"
         android:layout_width="fill_parent"
-        android:layout_height="@dimen/header_height"
-        android:id="@+id/in_and_out_amount_collect_header">
-        
+        android:layout_height="@dimen/header_height" >
     </com.his.nurse.widget.Header>
-    
-    <LinearLayout 
+
+    <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical"
+        android:scrollbars="none"
+        android:layout_margin="10dp"
         android:background="@drawable/nurse_view_round_corner"
-        android:layout_margin="10dp">
-        
-    </LinearLayout>
+        android:padding="10dp" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp" >
+
+                <TextView
+                    android:id="@+id/tv_tl"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="痰量："
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_tl"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_tl" >
+
+                    <EditText
+                        android:id="@+id/et_tl"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:maxLength="6"
+                        android:numeric="integer"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ml"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@id/ll_tl"
+                    android:layout_alignRight="@id/ll_tl"
+                    android:layout_below="@id/ll_tl"
+                    android:background="#cbcbcb" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp" >
+
+                <TextView
+                    android:id="@+id/tv_kf"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="口服："
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_kf"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_kf" >
+
+                    <EditText
+                        android:id="@+id/et_kf"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:maxLength="6"
+                        android:numeric="integer"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ml"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@id/ll_kf"
+                    android:layout_alignRight="@id/ll_kf"
+                    android:layout_below="@id/ll_kf"
+                    android:background="#cbcbcb" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp" >
+
+                <TextView
+                    android:id="@+id/tv_otl"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="呕吐量："
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_otl"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_otl" >
+
+                    <EditText
+                        android:id="@+id/et_otl"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:maxLength="6"
+                        android:numeric="integer"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ml"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@id/ll_otl"
+                    android:layout_alignRight="@id/ll_otl"
+                    android:layout_below="@id/ll_otl"
+                    android:background="#cbcbcb" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp" >
+
+                <TextView
+                    android:id="@+id/tv_jm"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="静脉："
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_jm"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_jm" >
+
+                    <EditText
+                        android:id="@+id/et_jm"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:maxLength="6"
+                        android:numeric="integer"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ml"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@id/ll_jm"
+                    android:layout_alignRight="@id/ll_jm"
+                    android:layout_below="@id/ll_jm"
+                    android:background="#cbcbcb" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp" >
+
+                <TextView
+                    android:id="@+id/tv_nl"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="尿量："
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_nl"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_nl" >
+
+                    <EditText
+                        android:id="@+id/et_nl"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:maxLength="6"
+                        android:numeric="integer"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ml"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@id/ll_nl"
+                    android:layout_alignRight="@id/ll_nl"
+                    android:layout_below="@id/ll_nl"
+                    android:background="#cbcbcb" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp" >
+
+                <TextView
+                    android:id="@+id/tv_bs"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="鼻饲："
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_bs"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_bs" >
+
+                    <EditText
+                        android:id="@+id/et_bs"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:maxLength="6"
+                        android:numeric="integer"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ml"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@id/ll_bs"
+                    android:layout_alignRight="@id/ll_bs"
+                    android:layout_below="@id/ll_bs"
+                    android:background="#cbcbcb" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp" >
+
+                <TextView
+                    android:id="@+id/tv_yll"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="引流量："
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_yll"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_yll" >
+
+                    <EditText
+                        android:id="@+id/et_yll"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:maxLength="6"
+                        android:numeric="integer"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ml"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@id/ll_yll"
+                    android:layout_alignRight="@id/ll_yll"
+                    android:layout_below="@id/ll_yll"
+                    android:background="#cbcbcb" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp" >
+
+                <TextView
+                    android:id="@+id/tv_dbcs"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="大便次数："
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_dbcs"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_dbcs" >
+
+                    <EditText
+                        android:id="@+id/et_dbcs"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:maxLength="6"
+                        android:numeric="integer"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="次"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@id/ll_dbcs"
+                    android:layout_alignRight="@id/ll_dbcs"
+                    android:layout_below="@id/ll_dbcs"
+                    android:background="#cbcbcb" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp" >
+
+                <TextView
+                    android:id="@+id/tv_gc"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="灌肠："
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <RadioGroup
+                    android:id="@+id/rg_gc"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_gc"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/rb_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/nurse_radiobutton_style_selector"
+                        android:button="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:text="是"
+                        android:textColor="@color/black"
+                        android:textSize="18dp" />
+
+                    <RadioButton
+                        android:id="@+id/rb_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/nurse_radiobutton_style_selector"
+                        android:button="@null"
+                        android:checked="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:text="否"
+                        android:textColor="@color/black"
+                        android:textSize="18dp" />
+                </RadioGroup>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@id/rg_gc"
+                    android:layout_alignRight="@id/rg_gc"
+                    android:layout_below="@id/rg_gc"
+                    android:background="#cbcbcb" />
+            </RelativeLayout>
+
+            <com.his.nurse.widget.fbutton.FButton
+                android:id="@+id/btn_save"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="保存记录"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                fbutton:buttonColor="#1ebf7c"
+                fbutton:cornerRadius="3dp"
+                fbutton:shadowEnabled="false"/>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
