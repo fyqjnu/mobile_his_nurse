@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="#1ebf7c"
+    android:orientation="horizontal" >
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/nurse_man_headpic"/>
+    
+    <RelativeLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <TextView 
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="刘建国"
+            android:padding="5dp"
+            android:textSize="18dp"/>
+        
+        <TextView 
+            android:id="@+id/tv_sex"
+            android:layout_toRightOf="@id/tv_name"
+            android:layout_alignBottom="@id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="男"
+            android:padding="5dp"
+            android:textSize="14dp"/>
+        
+        <TextView 
+            android:id="@+id/tv_age"
+            android:layout_toRightOf="@id/tv_sex"
+            android:layout_alignBottom="@id/tv_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="63"
+            android:padding="5dp"
+            android:textSize="14dp"/>
+        
+        <TextView 
+            android:id="@+id/tv_bch"
+            android:layout_toRightOf="@id/tv_age"
+            android:layout_alignBottom="@id/tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="病床号："
+            android:padding="5dp"
+            android:textSize="14dp"/>
+        
+        <TextView 
+            android:id="@+id/tv_bedno"
+            android:layout_toRightOf="@id/tv_bch"
+            android:layout_alignBottom="@id/tv_bch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="1002"
+            android:padding="5dp"
+            android:textSize="14dp"/>
+        
+        <TextView 
+            android:id="@+id/tv_zy"
+            android:layout_below="@id/tv_name"
+            android:layout_alignLeft="@id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="在院："
+            android:padding="5dp"
+            android:textSize="14dp"/>
+        
+        <TextView 
+            android:id="@+id/tv_day"
+            android:layout_below="@id/tv_name"
+            android:layout_toRightOf="@id/tv_zy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="16"
+            android:padding="5dp"
+            android:textSize="14dp"/>
+        
+        <TextView 
+            android:id="@+id/tv_zyh"
+            android:layout_below="@id/tv_bch"
+            android:layout_alignLeft="@id/tv_bch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="住院号："
+            android:padding="5dp"
+            android:textSize="14dp"/>
+        
+        <TextView 
+            android:id="@+id/tv_hosno"
+            android:layout_toRightOf="@id/tv_zyh"
+            android:layout_alignBottom="@id/tv_zyh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="141003"
+            android:padding="5dp"
+            android:textSize="14dp"/>
+    </RelativeLayout>
+    
+
+</LinearLayout>
