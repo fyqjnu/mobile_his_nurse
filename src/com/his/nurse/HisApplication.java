@@ -9,4 +9,6 @@ public class HisApplication extends Application {
         super.onCreate();
     }
     
+    
+    
 }

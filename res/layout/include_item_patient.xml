@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout 
+        android:padding="3dp"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#f75b5c"
+        >
+        <TextView 
+            android:id="@+id/item_patient_tv_bed_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:text="1003"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:id="@+id/item_patient_tv_priority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:text="一级护理"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:id="@+id/item_patient_tv_danger_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:text="无危重级别"
+            android:layout_weight="1"
+            />
+       
+    </LinearLayout>
+
+</LinearLayout>
