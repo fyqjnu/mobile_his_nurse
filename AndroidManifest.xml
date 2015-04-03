@@ -65,6 +65,41 @@
             
         </activity>
         
+        <!-- 病人信息 -->
+        <activity 
+            android:name="com.his.nurse.activity.PatientBasicInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize">
+            
+        </activity>
+        
+        <activity 
+            android:name="com.his.nurse.activity.SkinTestActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize">
+            
+        </activity>
+        
+        <!-- 医嘱执行 -->
+        
+        <activity 
+            android:name="com.his.nurse.activity.DoctorAdviceInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize">
+            
+        </activity>
+        
+        <activity 
+            android:name="com.his.nurse.activity.DoctorAdviceCheckActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize">
+            
+        </activity>
+        
         
     </application>
 
