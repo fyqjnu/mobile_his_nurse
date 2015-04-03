@@ -31,6 +31,22 @@
             >
         </activity>
         
+        <activity 
+            android:name="com.his.nurse.activity.TodayTaskActivity"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity 
+            android:name="com.his.nurse.activity.CheckDrugActivity"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity 
+            android:name="com.his.nurse.activity.PatientListActivity"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        
         <!-- 体征采集 -->
         <activity 
             android:name="com.his.nurse.activity.SignsCollectActivity"

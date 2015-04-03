@@ -190,6 +190,7 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
             
         case R.id.home_ll_drug_verify:
             ILog.d("药品核对");
+            startActivity(new Intent(this, CheckDrugActivity.class));
             break;
             
         case R.id.home_ll_infusion:
@@ -201,6 +202,10 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
         	ILog.d("体征采集");
         	Intent sign_collect_intent = new Intent(this, SignsCollectActivity.class);
             startActivity(sign_collect_intent);
+            break;
+        case R.id.home_ll_patient_info:
+            startActivity(new Intent(this, PatientListActivity.class));
+            break;
         default:
             break;
         }

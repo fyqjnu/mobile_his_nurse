@@ -11,26 +11,44 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.his.nurse.R;
 import com.his.nurse.adapter.PatientAdapter;
+import com.his.nurse.adapter.SimplePageAdapter;
 import com.his.nurse.entity.Patient;
+import com.his.nurse.util.DensityUtil;
+import com.his.nurse.util.ILog;
 import com.his.nurse.widget.Header;
 import com.his.nurse.widget.tab.TabIndicator;
 
 /**
  * 今日任务
  */
-public class TodayTaskActivity extends BaseActivity implements OnPageChangeListener {
+public class TodayTaskActivity extends BaseActivity implements OnPageChangeListener, OnItemClickListener {
     
     
+    private static final int ID_LV_CHECK_ROOM = 1;
+    private static final int ID_LV_CHECK_DRUG = 2;
+    private static final int ID_LV_ADVICE_PERFORM = 3;
+    private static final int ID_LV_COLLECT_SIGN = 4;
     private TabIndicator tab;
     private List<View> views;
     
     //查房
     private ListView lvCheckRoom;
+    
+    //核药
+    private ListView lvCheckDrug;
+    
+    //医嘱
+    private ListView lvAdvicePerform;
+    
+    //体征采集
+    private ListView lvCollectSign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,41 +75,45 @@ public class TodayTaskActivity extends BaseActivity implements OnPageChangeListe
         ViewPager pager = (ViewPager) findViewById(R.id.today_task_viewPager);
         pager.setOnPageChangeListener(this);
         views = new ArrayList<View>();
+        //
         lvCheckRoom = createListView();
         views.add(lvCheckRoom);
         PatientAdapter checkRoomAdapter = new PatientAdapter(this);
         checkRoomAdapter.setPatientInfo(getPatientInfo());
         lvCheckRoom.setAdapter(checkRoomAdapter);
-        for (int i=0;i<3; i++) {
+        lvCheckRoom.setOnItemClickListener(this);
+        lvCheckRoom.setId(ID_LV_CHECK_ROOM);
+
+        
+        lvCheckDrug = createListView();
+        views.add(lvCheckDrug);
+        PatientAdapter checkDrugAdapter = new PatientAdapter(this);
+        checkDrugAdapter.setPatientInfo(getPatientInfo());
+        lvCheckDrug.setAdapter(checkDrugAdapter);
+        lvCheckDrug.setId(ID_LV_CHECK_DRUG);
+        
+        lvAdvicePerform = createListView();
+        views.add(lvAdvicePerform);
+        PatientAdapter advicePerformAdapter = new PatientAdapter(this);
+        advicePerformAdapter.setPatientInfo(getPatientInfo());
+        lvAdvicePerform.setAdapter(advicePerformAdapter);
+        lvAdvicePerform.setId(ID_LV_ADVICE_PERFORM);
+        
+        lvCollectSign = createListView();
+        views.add(lvCollectSign);
+        PatientAdapter collectionSignAdapter = new PatientAdapter(this);
+        collectionSignAdapter.setPatientInfo(getPatientInfo());
+        lvCollectSign.setAdapter(collectionSignAdapter);
+        lvCollectSign.setId(ID_LV_COLLECT_SIGN);
+        
+        
+        /*for (int i=0;i<3; i++) {
             TextView tv = new TextView(this);
             tv.setText("pager" + i);
             views.add(tv);
-        }
+        }*/
         
-        pager.setAdapter(new PagerAdapter() {
-            
-            @Override
-            public Object instantiateItem(ViewGroup container, int position) {
-                container.addView(views.get(position), -1, -1);
-                return views.get(position);
-            }
-            
-            @Override
-            public void destroyItem(ViewGroup container, int position,
-                    Object object) {
-                container.removeView(views.get(position));
-            }
-            
-            @Override
-            public boolean isViewFromObject(View view, Object object) {
-                return view==object;
-            }
-            
-            @Override
-            public int getCount() {
-                return views.size();
-            }
-        });
+        pager.setAdapter(new SimplePageAdapter(views));
         
         tab = (TabIndicator) findViewById(R.id.today_task_tab_indicator);
         tab.setTabTitle(new String[]{"查房待办", "核药待办", "医嘱执行", "体征采集"});
@@ -100,21 +122,22 @@ public class TodayTaskActivity extends BaseActivity implements OnPageChangeListe
     }
     
     private List<Patient> getPatientInfo() {
+        Random r = new Random();
         List<Patient> list = new ArrayList<Patient>();
         for (int i=0; i<10;i++) {
             Patient p = new Patient();
-            p.age = 20 + new Random().nextInt(40);
+            p.age = 20 + r.nextInt(40);
             p.name = "姓名 " + i;
             p.bedNum = "1002";
             p.dangerType = "无危重情况";
-            p.daysInHospital = 10;
+            p.daysInHospital = 1 + r.nextInt(100);
             p.doctorName = "小红";
             p.foodType = "清淡食物";
             p.id = "100024";
             p.illType = "肝炎";
             p.payType = "广州医保";
             p.priority = "一级护理";
-            p.sex = new Random().nextInt(1)==1?"男":"女";
+            p.sex = r.nextInt(2)==1?"男":"女";
             list.add(p);
         }
         return list;
@@ -122,6 +145,7 @@ public class TodayTaskActivity extends BaseActivity implements OnPageChangeListe
 
     private ListView createListView() {
         ListView lv = new ListView(this);
+        lv.setDividerHeight(DensityUtil.dip2px(this, 4));
         return lv;
     }
 
@@ -138,6 +162,26 @@ public class TodayTaskActivity extends BaseActivity implements OnPageChangeListe
     @Override
     public void onPageSelected(int index) {
         tab.setCurrentItem(index);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position,
+            long id) {
+        switch (parent.getId()) {
+        case ID_LV_ADVICE_PERFORM:
+            
+            break;
+        case ID_LV_CHECK_DRUG:
+            break;
+        case ID_LV_CHECK_ROOM:
+            ILog.d("点击查房：" + position);
+            break;
+        case ID_LV_COLLECT_SIGN:
+            break;
+
+        default:
+            break;
+        }
     }
     
 
