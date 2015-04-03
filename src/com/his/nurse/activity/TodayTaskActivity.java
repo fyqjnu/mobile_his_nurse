@@ -23,12 +23,14 @@ import com.his.nurse.entity.Patient;
 import com.his.nurse.util.DensityUtil;
 import com.his.nurse.util.ILog;
 import com.his.nurse.widget.Header;
+import com.his.nurse.widget.SearchView;
+import com.his.nurse.widget.SearchView.ISearchListener;
 import com.his.nurse.widget.tab.TabIndicator;
 
 /**
  * 今日任务
  */
-public class TodayTaskActivity extends BaseActivity implements OnPageChangeListener, OnItemClickListener {
+public class TodayTaskActivity extends BaseActivity implements OnPageChangeListener, OnItemClickListener, ISearchListener {
     
     
     private static final int ID_LV_CHECK_ROOM = 1;
@@ -146,6 +148,9 @@ public class TodayTaskActivity extends BaseActivity implements OnPageChangeListe
     private ListView createListView() {
         ListView lv = new ListView(this);
         lv.setDividerHeight(DensityUtil.dip2px(this, 4));
+        SearchView searchView = new SearchView(this);
+        searchView.setSearchListener(this);
+        lv.addHeaderView(searchView);
         return lv;
     }
 
@@ -182,6 +187,18 @@ public class TodayTaskActivity extends BaseActivity implements OnPageChangeListe
         default:
             break;
         }
+    }
+
+    @Override
+    public void onSearch(String keyWord) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void onScan() {
+        // TODO Auto-generated method stub
+        
     }
     
 

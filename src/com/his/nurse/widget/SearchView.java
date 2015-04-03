@@ -46,6 +46,8 @@ public class SearchView extends RelativeLayout implements OnClickListener {
     }
 
     private void init() {
+        setFocusable(true);
+        setFocusableInTouchMode(true);
         int h = DensityUtil.dip2px(getContext(), 8);
         int v = DensityUtil.dip2px(getContext(), 5);
         setPadding(h, v, h, v);

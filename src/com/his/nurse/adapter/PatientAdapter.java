@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,6 +36,9 @@ public class PatientAdapter extends BaseAdapter implements OnItemClickListener, 
     private static final String tag_skin_test_result = "tag_skin_test_result";
 
     private Context ctx;
+    
+    
+    private SparseArray<Integer> displayChildMap = new SparseArray<Integer>();
     
     private List<Patient> data;
     
@@ -110,10 +114,16 @@ public class PatientAdapter extends BaseAdapter implements OnItemClickListener, 
             vh.llSkinTestResult.setOnClickListener(this);
             vh.llSkinTestResult.setTag(tag_skin_test_result);
             
+            vh.vf = vf;
+            
             view.setTag(vh);
         } else {
             vh = (ViewHolder) view.getTag();
         }
+        
+        int child = displayChildMap.get(position, new Integer(0));
+        vh.vf.setDisplayedChild(child);
+        
         Patient info = (Patient) getItem(position);
         vh.tvBedNum.setText(info.bedNum);
         vh.tvDangerLevel.setText(info.dangerType);
@@ -139,6 +149,9 @@ public class PatientAdapter extends BaseAdapter implements OnItemClickListener, 
     }
     
     class ViewHolder {
+        
+        ViewFlipper vf;
+        
         TextView tvBedNum;
         TextView tvName;
         TextView tvSexAge;
@@ -163,7 +176,14 @@ public class PatientAdapter extends BaseAdapter implements OnItemClickListener, 
     public void onItemClick(AdapterView<?> parent, View view, int position,
             long id) {
         ViewFlipper vf = (ViewFlipper) view;
-        vf.showNext();
+        Integer child = displayChildMap.get(position, Integer.valueOf(0));
+        if (child == 0) {
+            child = 1;
+        } else if (child == 1) {
+            child = 0;
+        }
+        vf.setDisplayedChild(child);
+        displayChildMap.put(position, child);
     }
 
     @Override
