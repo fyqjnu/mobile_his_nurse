@@ -3,10 +3,14 @@ package com.his.nurse.adapter;
 import java.util.List;
 
 import com.his.nurse.R;
+import com.his.nurse.activity.DoctorAdviceInfoActivity;
+import com.his.nurse.activity.PatientBasicInfoActivity;
+import com.his.nurse.activity.SkinTestActivity;
 import com.his.nurse.entity.Patient;
 import com.his.nurse.util.ILog;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -195,19 +199,22 @@ public class PatientAdapter extends BaseAdapter implements OnItemClickListener, 
         ILog.d("位置:" + position);
         if (tag_basic_info.equals(tag)) {
             //病人基本信息
-            
+            Intent intent = new Intent(ctx,PatientBasicInfoActivity.class);
+            ctx.startActivity(intent);
         } else if (tag_cost_detail.equals(tag)) {
             //费用清单
             
         } else if (tag_doctor_advice_info.equals(tag)) {
             //医嘱
-            
+        	Intent intent = new Intent(ctx,DoctorAdviceInfoActivity.class);
+            ctx.startActivity(intent);
         } else if (tag_sign_info.equals(tag)) {
             //体征信息
             
         } else if (tag_skin_test_result.equals(tag)) {
             //皮试结果
-            
+        	Intent intent = new Intent(ctx,SkinTestActivity.class);
+            ctx.startActivity(intent);
         }
     }
 

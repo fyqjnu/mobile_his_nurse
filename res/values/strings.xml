@@ -7,9 +7,19 @@
     
     <!-- 体征采集 -->
     <string name="nurse_signs_collect">体征采集</string>
+    <string name="nurse_signs_collect_detail">体征采集详情单</string>
     <string name="nurse_in_and_out_amount">体征采集（出入量）</string>
     <string name="nurse_in_and_out_amount_collect">出入量采集</string>
 
     <!-- 输液监控 -->
     <string name="nurse_infusion_monitor">输液监控</string>
+    
+    <!-- 病人信息 -->
+    <string name="nurse_patient_info">病人信息</string>
+    <string name="nurse_my_patient">我的病人</string>
+    <string name="nurse_skin_test_result">皮试结果</string>
+    
+    <!-- 医嘱执行 -->
+    <string name="nurse_doctor_advice_info">医嘱信息</string>
+    <string name="nurse_doctor_advice_check">医嘱执行核对</string>
 </resources>

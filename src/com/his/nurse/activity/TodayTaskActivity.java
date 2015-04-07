@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
@@ -23,6 +25,7 @@ import com.his.nurse.entity.Patient;
 import com.his.nurse.util.DensityUtil;
 import com.his.nurse.util.ILog;
 import com.his.nurse.widget.Header;
+import com.his.nurse.widget.MyViewPager;
 import com.his.nurse.widget.SearchView;
 import com.his.nurse.widget.SearchView.ISearchListener;
 import com.his.nurse.widget.tab.TabIndicator;
@@ -30,8 +33,8 @@ import com.his.nurse.widget.tab.TabIndicator;
 /**
  * 今日任务
  */
-public class TodayTaskActivity extends BaseActivity implements OnPageChangeListener, OnItemClickListener, ISearchListener {
-    
+public class TodayTaskActivity extends BaseFragment implements OnPageChangeListener, OnItemClickListener, ISearchListener {
+    private MainActivity act;
     
     private static final int ID_LV_CHECK_ROOM = 1;
     private static final int ID_LV_CHECK_DRUG = 2;
@@ -51,36 +54,48 @@ public class TodayTaskActivity extends BaseActivity implements OnPageChangeListe
     
     //体征采集
     private ListView lvCollectSign;
-
+    
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        
-        setContentView(R.layout.activity_today_task);
-        
-        initView();
-        
+    public void onAttach(Activity activity) {
+    	// TODO Auto-generated method stub
+    	act = (MainActivity)activity;
+    	super.onAttach(activity);
     }
 
-    private void initView() {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+    	// TODO Auto-generated method stub
+    	super.onCreate(savedInstanceState);
+    }
+    
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    		Bundle savedInstanceState) {
+    	// TODO Auto-generated method stub
+    	View v = inflater.inflate(R.layout.activity_today_task, container,
+				false);
+		initView(v);
+    	return v;
+    }
+    
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+    	// TODO Auto-generated method stub
+    	super.onActivityCreated(savedInstanceState);
+    }
+
+    private void initView(View v) {
         
-        Header header = (Header) findViewById(R.id.today_task_header);
+        Header header = (Header) v.findViewById(R.id.today_task_header);
         header.setTitle("今日任务");
-        header.setLeftImageVewRes(R.drawable.back, new OnClickListener() {
-            
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
         
-        ViewPager pager = (ViewPager) findViewById(R.id.today_task_viewPager);
+        MyViewPager pager = (MyViewPager) v.findViewById(R.id.today_task_viewPager);
         pager.setOnPageChangeListener(this);
         views = new ArrayList<View>();
         //
         lvCheckRoom = createListView();
         views.add(lvCheckRoom);
-        PatientAdapter checkRoomAdapter = new PatientAdapter(this);
+        PatientAdapter checkRoomAdapter = new PatientAdapter(act);
         checkRoomAdapter.setPatientInfo(getPatientInfo());
         lvCheckRoom.setAdapter(checkRoomAdapter);
         lvCheckRoom.setOnItemClickListener(this);
@@ -89,21 +104,21 @@ public class TodayTaskActivity extends BaseActivity implements OnPageChangeListe
         
         lvCheckDrug = createListView();
         views.add(lvCheckDrug);
-        PatientAdapter checkDrugAdapter = new PatientAdapter(this);
+        PatientAdapter checkDrugAdapter = new PatientAdapter(act);
         checkDrugAdapter.setPatientInfo(getPatientInfo());
         lvCheckDrug.setAdapter(checkDrugAdapter);
         lvCheckDrug.setId(ID_LV_CHECK_DRUG);
         
         lvAdvicePerform = createListView();
         views.add(lvAdvicePerform);
-        PatientAdapter advicePerformAdapter = new PatientAdapter(this);
+        PatientAdapter advicePerformAdapter = new PatientAdapter(act);
         advicePerformAdapter.setPatientInfo(getPatientInfo());
         lvAdvicePerform.setAdapter(advicePerformAdapter);
         lvAdvicePerform.setId(ID_LV_ADVICE_PERFORM);
         
         lvCollectSign = createListView();
         views.add(lvCollectSign);
-        PatientAdapter collectionSignAdapter = new PatientAdapter(this);
+        PatientAdapter collectionSignAdapter = new PatientAdapter(act);
         collectionSignAdapter.setPatientInfo(getPatientInfo());
         lvCollectSign.setAdapter(collectionSignAdapter);
         lvCollectSign.setId(ID_LV_COLLECT_SIGN);
@@ -117,7 +132,7 @@ public class TodayTaskActivity extends BaseActivity implements OnPageChangeListe
         
         pager.setAdapter(new SimplePageAdapter(views));
         
-        tab = (TabIndicator) findViewById(R.id.today_task_tab_indicator);
+        tab = (TabIndicator) v.findViewById(R.id.today_task_tab_indicator);
         tab.setTabTitle(new String[]{"查房待办", "核药待办", "医嘱执行", "体征采集"});
         tab.setCurrentItem(pager.getCurrentItem());
         tab.setViewPager(pager);
@@ -146,9 +161,9 @@ public class TodayTaskActivity extends BaseActivity implements OnPageChangeListe
     }
 
     private ListView createListView() {
-        ListView lv = new ListView(this);
-        lv.setDividerHeight(DensityUtil.dip2px(this, 4));
-        SearchView searchView = new SearchView(this);
+        ListView lv = new ListView(act);
+        lv.setDividerHeight(DensityUtil.dip2px(act, 4));
+        SearchView searchView = new SearchView(act);
         searchView.setSearchListener(this);
         lv.addHeaderView(searchView);
         return lv;

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/botll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:baselineAligned="false"
+        android:background="#ffffed"
+        android:orientation="horizontal" >
+        
+        <RelativeLayout
+            android:id="@+id/menuTab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:padding="5dp"
+            >
+
+            <ImageView
+                android:id="@+id/menuTabIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@null"
+                android:background="@drawable/nurse_main_menu_icon"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/myPatientTab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:padding="5dp"
+            >
+
+            <ImageView
+                android:id="@+id/myPatientTabIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@null"
+                android:background="@drawable/nurse_my_patient_select"
+                 />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/infusionMonitorTab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:padding="5dp"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/infusionMonitorTabIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@null"
+                android:background="@drawable/nurse_infusion_monitor_unselect"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/todayTaskTab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:padding="5dp"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/todayTaskTabIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@null"
+                android:background="@drawable/nurse_today_task_unselect"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/sysSetTab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:padding="5dp"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/sysSetTabIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@null"
+                android:background="@drawable/nurse_sys_setting_unselect" />
+
+        </RelativeLayout>
+    </LinearLayout>
+    
+    <ImageView 
+        android:id="@+id/iv_bottom_line"
+        android:layout_above="@id/botll"
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#afafaf"/>
+
+    <LinearLayout
+        android:id="@+id/simple_fragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/iv_bottom_line"
+        android:background="#e1e1e1"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</RelativeLayout>

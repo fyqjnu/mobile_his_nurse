@@ -18,11 +18,15 @@
         android:scrollbars="none"
         android:layout_margin="10dp"
         android:background="@drawable/nurse_view_round_corner"
-        android:padding="10dp" >
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        >
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical" >
 
             <RelativeLayout
@@ -503,11 +507,13 @@
                 android:layout_marginRight="40dp"
                 android:layout_marginTop="15dp"
                 android:gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:text="保存记录"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 fbutton:buttonColor="#1ebf7c"
                 fbutton:cornerRadius="3dp"
+                android:background="@drawable/home_option_bg"
                 fbutton:shadowEnabled="false"/>
         </LinearLayout>
     </ScrollView>

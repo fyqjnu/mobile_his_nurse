@@ -24,6 +24,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.his.nurse.R;
@@ -42,13 +43,12 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
     private TextView tvTime;
     private TextView tvDate;
     private BroadcastReceiver timeReceiver;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.activity_main);
-        
         initView();
         
         
@@ -71,7 +71,7 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
         tvTime.setText(getTime());
         tvDate.setText(getDate());
     }
-
+    
     private void initView() {
         
         tvTime = (TextView) findViewById(R.id.home_tv_time);
@@ -203,9 +203,18 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
         	Intent sign_collect_intent = new Intent(this, SignsCollectActivity.class);
             startActivity(sign_collect_intent);
             break;
+        case R.id.home_ll_advice_perform:
+        	ILog.d("医嘱执行");
+        	Intent doctor_advice_intent = new Intent(this, DoctorAdviceInfoActivity.class);
+            startActivity(doctor_advice_intent);
+            break;
         case R.id.home_ll_patient_info:
             startActivity(new Intent(this, PatientListActivity.class));
             break;
+        case R.id.home_ll_nurse_round:
+        	Intent nurse_round_intent = new Intent(this, MyPatientActivity.class);
+            startActivity(nurse_round_intent);
+        	break;
         default:
             break;
         }

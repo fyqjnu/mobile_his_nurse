@@ -3,6 +3,8 @@
     <color name="grey">#777</color>
     <color name="black">#000</color>
     <color name="white">#fff</color>
+    <color name="translucent_2">#20000000</color>
+    <color name="transparent">#00000000</color>
     
     <!-- Fbuuton openlibrary -->
     <color name="fbutton_default_color">#3eadeb</color>

@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.his.nurse"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <com.his.nurse.widget.Header
+        android:id="@+id/signscollect_header"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/header_height" >
+    </com.his.nurse.widget.Header>
+
+    <LinearLayout
+        android:id="@+id/ll_collect"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signscollect_header"
+        android:background="@drawable/nurse_view_selector2"
+        android:gravity="center"
+        android:padding="10dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:src="@drawable/nurse_signs_add_big_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击采集"
+            android:textColor="#6c6c6c"
+            android:textSize="16dp" />
+    </LinearLayout>
+    
+    <com.his.nurse.widget.jazzylistview.JazzyListView
+        android:layout_below="@id/ll_collect"
+        android:id="@+id/listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:listSelector="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@null"
+        android:dividerHeight="2dp"
+        android:scrollbars="none"
+        app:effect="slide_in"
+        app:only_animate_new_items="false"
+        app:only_animate_fling="false"
+        app:max_velocity="0">
+        
+    </com.his.nurse.widget.jazzylistview.JazzyListView>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/rl_in_and_out_amount"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/nurse_view_selector1"
+        android:padding="10dp" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" >
+
+            <LinearLayout
+                android:id="@+id/ll_in_and_out_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="出入量"
+                    android:textColor="#1ebf7c"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/nurse_signs_add_small_icon" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_in_and_out_amount"
+                android:layout_centerHorizontal="true"
+                android:text="（点击采集）"
+                android:textColor="#1ebf7c"
+                android:textSize="14dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:visibility="gone"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/rl_in_and_out_amount"
+        android:layout_below="@id/ll_collect"
+        android:background="@color/white"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp" >
+
+                <ImageView
+                    android:id="@+id/iv_tiwen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/nurse_sign_tiwen_icon" />
+
+                <TextView
+                    android:id="@+id/tv_tiwen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_tiwen"
+                    android:text="体温"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_tiwen"
+                    android:text="(℃)"
+                    android:textColor="#8f8f8f"
+                    android:textSize="16dp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentRight="true" >
+
+                    <ImageView
+                        android:id="@+id/iv_tw_line"
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:background="#dcdcdc" />
+
+                    <TextView
+                        android:id="@+id/tv_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/iv_tw_line"
+                        android:text="最新："
+                        android:textColor="#8f8f8f"
+                        android:textSize="16dp" />
+                    
+                    <TextView
+                        android:id="@+id/tv_new_tiwen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_new"
+                        android:layout_alignBottom="@id/tv_new"
+                        android:text="35.8"
+                        android:textColor="#fe6c00"
+                        android:textSize="18dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_new_tiwen"
+                        android:layout_alignBottom="@id/tv_new_tiwen"
+                        android:text="腋"
+                        android:textColor="#8f8f8f"
+                        android:textSize="16dp" />
+                    
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/tv_new"
+                        android:layout_below="@id/tv_new"
+                        android:text="2015-04-01  09:00"
+                        android:textColor="#8f8f8f"
+                        android:textSize="14dp" />
+                </RelativeLayout>
+            </RelativeLayout>
+            
+            <ImageView 
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#cbcbcb"/>
+            
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp" >
+
+                <ImageView
+                    android:id="@+id/iv_maibo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/nurse_sign_maibo_icon" />
+
+                <TextView
+                    android:id="@+id/tv_maibo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_maibo"
+                    android:text="脉搏"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_maibo"
+                    android:text="(P)次/分"
+                    android:textColor="#8f8f8f"
+                    android:textSize="16dp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentRight="true" >
+
+                    <ImageView
+                        android:id="@+id/iv_mb_line"
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:background="#dcdcdc" />
+
+                    <TextView
+                        android:id="@+id/tv_mb_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/iv_mb_line"
+                        android:text="最新："
+                        android:textColor="#8f8f8f"
+                        android:textSize="16dp" />
+                    
+                    <TextView
+                        android:id="@+id/tv_new_maibo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_mb_new"
+                        android:layout_alignBottom="@id/tv_mb_new"
+                        android:text="90"
+                        android:textColor="#fe6c00"
+                        android:textSize="18dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_new_maibo"
+                        android:layout_alignBottom="@id/tv_new_maibo"
+                        android:text="腋"
+                        android:visibility="gone"
+                        android:textColor="#8f8f8f"
+                        android:textSize="16dp" />
+                    
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/tv_mb_new"
+                        android:layout_below="@id/tv_mb_new"
+                        android:text="2015-04-01  09:00"
+                        android:textColor="#8f8f8f"
+                        android:textSize="14dp" />
+                </RelativeLayout>
+            </RelativeLayout>
+            
+            <ImageView 
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#cbcbcb"/>
+            
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp" >
+
+                <ImageView
+                    android:id="@+id/iv_maibo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/nurse_sign_huxi_icon" />
+
+                <TextView
+                    android:id="@+id/tv_maibo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_maibo"
+                    android:text="呼吸"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_maibo"
+                    android:text="(R)收/舒mmhg"
+                    android:textColor="#8f8f8f"
+                    android:textSize="16dp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentRight="true" >
+
+                    <ImageView
+                        android:id="@+id/iv_mb_line"
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:background="#dcdcdc" />
+
+                    <TextView
+                        android:id="@+id/tv_mb_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/iv_mb_line"
+                        android:text="最新："
+                        android:textColor="#8f8f8f"
+                        android:textSize="16dp" />
+                    
+                    <TextView
+                        android:id="@+id/tv_new_maibo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_mb_new"
+                        android:layout_alignBottom="@id/tv_mb_new"
+                        android:text="150"
+                        android:textColor="#fe6c00"
+                        android:textSize="18dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_new_maibo"
+                        android:layout_alignBottom="@id/tv_new_maibo"
+                        android:text="腋"
+                        android:visibility="gone"
+                        android:textColor="#8f8f8f"
+                        android:textSize="16dp" />
+                    
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/tv_mb_new"
+                        android:layout_below="@id/tv_mb_new"
+                        android:text="2015-04-01  09:00"
+                        android:textColor="#8f8f8f"
+                        android:textSize="14dp" />
+                </RelativeLayout>
+            </RelativeLayout>
+            
+            <ImageView 
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#cbcbcb"/>
+            
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp" >
+
+                <ImageView
+                    android:id="@+id/iv_maibo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/nurse_sign_xinlv_icon" />
+
+                <TextView
+                    android:id="@+id/tv_maibo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_maibo"
+                    android:text="心率"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_maibo"
+                    android:text="(HR)次/分"
+                    android:textColor="#8f8f8f"
+                    android:textSize="16dp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentRight="true" >
+
+                    <ImageView
+                        android:id="@+id/iv_mb_line"
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:background="#dcdcdc" />
+
+                    <TextView
+                        android:id="@+id/tv_mb_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/iv_mb_line"
+                        android:text="最新："
+                        android:textColor="#8f8f8f"
+                        android:textSize="16dp" />
+                    
+                    <TextView
+                        android:id="@+id/tv_new_maibo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_mb_new"
+                        android:layout_alignBottom="@id/tv_mb_new"
+                        android:text="80"
+                        android:textColor="#fe6c00"
+                        android:textSize="18dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_new_maibo"
+                        android:layout_alignBottom="@id/tv_new_maibo"
+                        android:text="腋"
+                        android:visibility="gone"
+                        android:textColor="#8f8f8f"
+                        android:textSize="16dp" />
+                    
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/tv_mb_new"
+                        android:layout_below="@id/tv_mb_new"
+                        android:text="2015-04-01  09:00"
+                        android:textColor="#8f8f8f"
+                        android:textSize="14dp" />
+                </RelativeLayout>
+            </RelativeLayout>
+            
+            <ImageView 
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#cbcbcb"/>
+            
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp" >
+
+                <ImageView
+                    android:id="@+id/iv_maibo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/nurse_sign_tizhong_icon" />
+
+                <TextView
+                    android:id="@+id/tv_maibo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_maibo"
+                    android:text="体重"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_maibo"
+                    android:text="(BW)kg"
+                    android:textColor="#8f8f8f"
+                    android:textSize="16dp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentRight="true" >
+
+                    <ImageView
+                        android:id="@+id/iv_mb_line"
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:background="#dcdcdc" />
+
+                    <TextView
+                        android:id="@+id/tv_mb_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/iv_mb_line"
+                        android:text="最新："
+                        android:textColor="#8f8f8f"
+                        android:textSize="16dp" />
+                    
+                    <TextView
+                        android:id="@+id/tv_new_maibo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_mb_new"
+                        android:layout_alignBottom="@id/tv_mb_new"
+                        android:text="70"
+                        android:textColor="#fe6c00"
+                        android:textSize="18dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_new_maibo"
+                        android:layout_alignBottom="@id/tv_new_maibo"
+                        android:text="腋"
+                        android:visibility="gone"
+                        android:textColor="#8f8f8f"
+                        android:textSize="16dp" />
+                    
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/tv_mb_new"
+                        android:layout_below="@id/tv_mb_new"
+                        android:text="2015-04-01  09:00"
+                        android:textColor="#8f8f8f"
+                        android:textSize="14dp" />
+                </RelativeLayout>
+            </RelativeLayout>
+            
+            <ImageView 
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#cbcbcb"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -86,8 +86,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 			break;
 		case R.id.login_ll_enter:
-			Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+			Intent intent = new Intent(LoginActivity.this,MainActivity.class);
 			startActivity(intent);
+			finish();
 			break;
 		case R.id.login_tv_forget_pwd:
 

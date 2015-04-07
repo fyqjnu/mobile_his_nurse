@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <com.his.nurse.widget.Header
+        android:id="@+id/doctor_advice_info_header"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/header_height" >
+    </com.his.nurse.widget.Header>
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/include_patient_basic_info_top" />
+    <com.his.nurse.widget.tab.TabIndicator 
+        android:id="@+id/doctor_advice_tab_indicator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+    </com.his.nurse.widget.tab.TabIndicator>
+    
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

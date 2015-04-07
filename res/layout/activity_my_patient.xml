@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.his.nurse"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e1e1e1"
+    android:orientation="vertical" >
+
+    <com.his.nurse.widget.Header
+        android:id="@+id/my_patient_header"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/header_height" >
+    </com.his.nurse.widget.Header>
+
+    <com.his.nurse.widget.jazzylistview.JazzyGridView
+        android:id="@id/android:list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:cacheColorHint="@android:color/transparent"
+        android:horizontalSpacing="5dp"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth"
+        android:columnWidth="90dp"
+        android:padding="5dp"
+        android:scrollbars="none"
+        android:verticalSpacing="5dp"
+        app:effect="helix"
+        app:only_animate_new_items="false" >
+    </com.his.nurse.widget.jazzylistview.JazzyGridView>
+
+</LinearLayout>
