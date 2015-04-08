@@ -125,7 +125,7 @@ public class BottleView extends View {
         Paint paint = new Paint();
         
         paint.setColor(progressColor);
-        canvas.drawRect(new RectF(0, bitmap.getHeight()*(1-progress*1f/100), bitmap.getWidth(), bitmap.getHeight()), paint);
+        canvas.drawRect(new RectF(0, bitmap.getHeight()*(1-(progress+100*30.0f/160)*1f/100), bitmap.getWidth(), bitmap.getHeight()), paint);
         
         canvas.drawBitmap(bitmap, 0, 0, paint);
         
