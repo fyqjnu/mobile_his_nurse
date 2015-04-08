@@ -52,5 +52,10 @@ public class Patient {
      */
     public String priority;
     
+    /**
+     * 输液进度
+     */
+    public int infusionProgress;
+    
     
 }

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical" >
     <com.his.nurse.widget.Header 
         android:layout_width="fill_parent"
@@ -9,5 +10,20 @@
         android:id="@+id/infusion_monitor_header">
         
     </com.his.nurse.widget.Header>
+    
+    <com.his.nurse.widget.SearchView 
+        android:id="@+id/infusion_monitor_search_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        ></com.his.nurse.widget.SearchView>
+    <com.his.nurse.widget.jazzylistview.JazzyGridView 
+        android:id="@+id/infusion_monitor_gv"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:layout_width="fill_parent"
+        android:verticalSpacing="5dp"
+        android:horizontalSpacing="5dp"
+        android:layout_height="fill_parent"
+       />
 
 </LinearLayout>
