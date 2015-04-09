@@ -28,6 +28,8 @@ import com.his.nurse.widget.Header;
 import com.his.nurse.widget.MyViewPager;
 import com.his.nurse.widget.SearchView;
 import com.his.nurse.widget.SearchView.ISearchListener;
+import com.his.nurse.widget.jazzylistview.JazzyHelper;
+import com.his.nurse.widget.jazzylistview.JazzyListView;
 import com.his.nurse.widget.tab.TabIndicator;
 
 /**
@@ -161,8 +163,9 @@ public class TodayTaskActivity extends BaseFragment implements OnPageChangeListe
     }
 
     private ListView createListView() {
-        ListView lv = new ListView(act);
-        lv.setDividerHeight(DensityUtil.dip2px(act, 4));
+        JazzyListView lv = new JazzyListView(act);
+        lv.setTransitionEffect(JazzyHelper.SLIDE_IN);
+        lv.setDividerHeight((int) getResources().getDimension(R.dimen.item_vertical_space));
         SearchView searchView = new SearchView(act);
         searchView.setSearchListener(this);
         lv.addHeaderView(searchView);

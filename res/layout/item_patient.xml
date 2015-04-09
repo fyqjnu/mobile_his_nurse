@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="10"
+    android:background="@color/item_background"
     android:orientation="horizontal" >
     
     <LinearLayout 
@@ -23,11 +24,10 @@
         android:padding="3dp"
         >
              <TextView 
+                 style="@style/app_medium_textStyle_black"
             android:id="@+id/item_patient_tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/black"
             android:text="刘建国"
             android:layout_weight="1"
             />
@@ -35,8 +35,7 @@
             android:id="@+id/item_patient_tv_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/text_grey"
+            style="@style/app_medium_textStyle_black"
             android:text="141003"
             android:layout_weight="1"
             />
@@ -44,8 +43,7 @@
             android:id="@+id/item_patient_tv_sex_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/text_grey"
+            style="@style/app_medium_textStyle_black"
             android:text="男"
             android:layout_weight="1"
             />
@@ -53,8 +51,7 @@
             android:id="@+id/item_patient_tv_food_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/text_grey"
+            style="@style/app_medium_textStyle_black"
             android:text="低盐饮食"
             android:layout_weight="1"
             />
@@ -73,17 +70,15 @@
             android:id="@+id/item_patient_tv_doctor_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/text_grey"
             android:text="主管医生：张明"
+            style="@style/app_medium_textStyle_black"
             android:layout_weight="1"
             />
          <TextView
             android:id="@+id/item_patient_tv_ill_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:textSize="14sp"
-            android:textColor="@color/text_grey"
+            style="@style/app_medium_textStyle_black"
             android:text="入院诊断：肝炎"
             android:layout_weight="1"
             />
@@ -91,8 +86,7 @@
             android:id="@+id/item_patient_tv_days"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/text_grey"
+            style="@style/app_medium_textStyle_black"
             android:text="在院16天"
             android:layout_weight="1"
             />
@@ -100,8 +94,7 @@
             android:id="@+id/item_patient_tv_pay_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/text_grey"
+            style="@style/app_medium_textStyle_black"
             android:text="广州职工医保"
             android:layout_weight="1"
             />

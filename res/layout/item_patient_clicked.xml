@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="10"
+    android:background="@color/item_background"
     android:orientation="horizontal" >
     <LinearLayout 
         android:layout_width="0dp"
@@ -39,8 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="基本信息"
-                android:textColor="@color/text_grey"
-                android:textSize="10sp"
+                style="@style/app_little_textStyle_black"
                 />
         </LinearLayout>
         <LinearLayout 
@@ -60,8 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="费用清单"
-                android:textColor="@color/text_grey"
-                android:textSize="10sp"
+                style="@style/app_little_textStyle_black"
                 />
         </LinearLayout>
         <LinearLayout 
@@ -81,8 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="医嘱信息"
-                android:textColor="@color/text_grey"
-                android:textSize="10sp"
+               style="@style/app_little_textStyle_black"
                 />
         </LinearLayout>
         <LinearLayout 
@@ -102,8 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="体征信息"
-                android:textColor="@color/text_grey"
-                android:textSize="10sp"
+               style="@style/app_little_textStyle_black"
                 />
         </LinearLayout>
         <LinearLayout 
@@ -123,8 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="皮试结果"
-                android:textColor="@color/text_grey"
-                android:textSize="10sp"
+               style="@style/app_little_textStyle_black"
                 />
         </LinearLayout>
     </LinearLayout>
