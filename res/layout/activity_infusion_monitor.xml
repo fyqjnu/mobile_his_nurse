@@ -22,8 +22,6 @@
         android:numColumns="3"
         android:stretchMode="columnWidth"
         android:layout_width="fill_parent"
-        android:verticalSpacing="@dimen/item_vertical_space"
-        android:horizontalSpacing="@dimen/item_horizontal_space"
         android:layout_height="fill_parent"
        />
 

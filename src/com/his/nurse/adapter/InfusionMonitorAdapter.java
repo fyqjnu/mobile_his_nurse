@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.his.nurse.R;
 import com.his.nurse.entity.Patient;
+import com.his.nurse.util.DensityUtil;
 import com.his.nurse.widget.BottleView;
 
 import android.content.Context;
@@ -12,6 +13,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -70,6 +72,8 @@ public class InfusionMonitorAdapter extends BaseAdapter {
 		public ItemView(Context context) {
 			super(context);
 			setOrientation(1);
+			int p = context.getResources().getDimensionPixelSize(R.dimen.item_vertical_space) * 2;
+			setPadding(0, p, 0, 0);
 //			setBackgroundResource(R.color.item_background);
 			setGravity(Gravity.CENTER_HORIZONTAL);
 			bv = new BottleView(getContext());
@@ -78,6 +82,11 @@ public class InfusionMonitorAdapter extends BaseAdapter {
 //			tvName.setTextSize(15);
 //			tvName.setTextColor(Color.BLACK);
 			addView(tvName, -2, -2);
+			ImageView line = new ImageView(getContext());
+			line.setBackgroundColor(0xffb1b1b1);
+			LinearLayout.LayoutParams lineLp = new LinearLayout.LayoutParams(-1, 1); 
+			lineLp.topMargin = p;
+			addView(line, lineLp);
 			
 		}
 		
