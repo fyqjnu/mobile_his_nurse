@@ -12,6 +12,7 @@ import android.widget.TextView;
 /**
  * @author gordon
  * 加载进度框
+ * setContentText:对话框显示文本内容
  */
 public class LoadingDialog {
     
