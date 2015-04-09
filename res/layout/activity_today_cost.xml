@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.his.nurse"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp" >
+
+        <TextView
+            android:id="@+id/tv_total"
+            style="@style/app_textStyle_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="合计：" />
+        
+        <TextView
+            android:id="@+id/tv_total_money"
+            android:layout_toRightOf="@id/tv_total"
+            style="@style/app_textStyle_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="" />
+        
+        <ImageView 
+            android:layout_below="@id/tv_total_money"
+            android:layout_alignLeft="@id/tv_total_money"
+            android:layout_alignRight="@id/tv_total_money"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
+        
+    </RelativeLayout>
+
+    <com.his.nurse.widget.jazzylistview.JazzyListView
+        android:id="@+id/listview"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@null"
+        android:dividerHeight="2dp"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none"
+        app:effect="slide_in"
+        app:max_velocity="0"
+        app:only_animate_fling="false"
+        app:only_animate_new_items="false" >
+    </com.his.nurse.widget.jazzylistview.JazzyListView>
+
+</LinearLayout>

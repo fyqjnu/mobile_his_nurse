@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/nurse_view_selector2"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="2dp" >
+    <TextView 
+        android:id="@+id/tv_pay_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/app_textStyle_black"
+        android:textColor="#7e7e7e"
+        android:text="2015.3.21 10:50"
+        android:layout_margin="10dp"/>
+    
+    <TextView 
+        android:id="@+id/tv_pay_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/app_textStyle_black"
+        android:textColor="#7e7e7e"
+        android:text="2000元"
+        android:layout_margin="10dp"/>
+
+</LinearLayout>
