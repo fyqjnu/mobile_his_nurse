@@ -18,5 +18,7 @@
     <dimen name="textsize_big">16sp</dimen>
     <!-- 超大号字体 -->
     <dimen name="textsize_large">18sp</dimen>
+    <dimen name="item_vertical_space">4dp</dimen>
+    <dimen name="item_horizontal_space">4dp</dimen>
 
 </resources>
