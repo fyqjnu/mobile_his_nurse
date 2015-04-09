@@ -9,5 +9,14 @@
     <dimen name="fbutton_default_conner_radius">8dp</dimen>
     <dimen name="fbutton_default_shadow_height">4dp</dimen>
     <dimen name="listview_diverder_height">4dp</dimen>
+    
+    <!-- 小号字体 -->
+    <dimen name="textsize_small">12sp</dimen>
+    <!-- 中号字体 -->
+    <dimen name="textsize_medium">14sp</dimen>
+    <!-- 大号字体 -->
+    <dimen name="textsize_big">16sp</dimen>
+    <!-- 超大号字体 -->
+    <dimen name="textsize_large">18sp</dimen>
 
 </resources>

@@ -12,6 +12,5 @@
     <color name="fbutton_default_color">#3eadeb</color>
     <color name="fbutton_default_shadow_color">#ff3493c8</color>
     <color name="text_grey">#777e7e7e</color>
-    <color name="activity_bg">#ffe1e1e1</color>
     
 </resources>
