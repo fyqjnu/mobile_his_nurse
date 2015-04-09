@@ -1,16 +1,20 @@
 package com.his.nurse.activity;
 
 import com.his.nurse.R;
+import com.his.nurse.dialog.LoadingDialog;
 import com.his.nurse.util.ILog;
 import com.his.nurse.widget.Header;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 /**
  * @author gordon
@@ -19,6 +23,11 @@ import android.view.ViewGroup;
 public class SysSettingActivity extends BaseFragment implements OnClickListener{
 	private MainActivity act;
 	private Header header;
+	
+	
+	private Handler handler = new Handler(Looper.getMainLooper());
+    private LoadingDialog checkUpdateDialog;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -105,7 +114,17 @@ public class SysSettingActivity extends BaseFragment implements OnClickListener{
     }
 
     private void checkUpdate() {
-        
+        checkUpdateDialog = new LoadingDialog(act);
+        checkUpdateDialog.setContentText("检查更新");
+        checkUpdateDialog.show();
+        handler.postDelayed(new Runnable() {
+            
+            @Override
+            public void run() {
+                checkUpdateDialog.cancel();
+                Toast.makeText(act, "当前版本已最新", Toast.LENGTH_SHORT).show();
+            }
+        }, 1500);
     }
 
     private void feedback() {
