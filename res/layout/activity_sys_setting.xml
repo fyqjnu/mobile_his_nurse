@@ -2,11 +2,114 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical" >
+
     <com.his.nurse.widget.Header
         android:id="@+id/sys_setting_header"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/header_height" >
     </com.his.nurse.widget.Header>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="5dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/sys_settings_tv_feedback"
+                    style="@style/sys_settings_tv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/right_arrow"
+                    android:text="问题反馈" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/sys_settings_tv_clear_memory"
+                    style="@style/sys_settings_tv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/right_arrow"
+                    android:text="清除缓存" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:padding="5dp"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/sys_settings_tv_wifi_connect"
+                    style="@style/sys_settings_tv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/right_arrow"
+                    android:text="WIFI连接" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/sys_settings_tv_check_update"
+                    style="@style/sys_settings_tv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/right_arrow"
+                    android:text="检查更新" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/sys_settings_tv_set_terminal_id"
+                    style="@style/sys_settings_tv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/right_arrow"
+                    android:text="设置终端号" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/sys_settings_tv_sign_out"
+                    style="@style/sys_settings_tv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/right_arrow"
+                    android:text="注销" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
