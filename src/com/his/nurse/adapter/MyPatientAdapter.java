@@ -1,6 +1,10 @@
 package com.his.nurse.adapter;
 
+import java.util.List;
+
 import com.his.nurse.R;
+import com.his.nurse.entity.Patient;
+import com.his.nurse.util.TestLocalData;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,21 +18,23 @@ import android.widget.TextView;
 public class MyPatientAdapter extends BaseAdapter{
 	private Context mContext;
 	private LayoutInflater inflater;
+	private List<Patient> infos;
 	public MyPatientAdapter(Context context){
 		this.mContext = context;
 		this.inflater = LayoutInflater.from(context);
+		this.infos = TestLocalData.getPatientInfo(20);
 	}
 
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return 20;
+		return infos.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
 		// TODO Auto-generated method stub
-		return null;
+		return infos.get(position);
 	}
 
 	@Override
@@ -70,10 +76,10 @@ public class MyPatientAdapter extends BaseAdapter{
 			
 			viewHolder.iv_nursing_level_1.setBackgroundResource(R.drawable.nurse_nursing_level_1);
 			viewHolder.tv_bedno.setText((1001+position)+"");
-			viewHolder.tv_name.setText("刘建国");
-			viewHolder.tv_sex.setText("男");
-			viewHolder.tv_age.setText("56");
-			viewHolder.tv_hos_no.setText("100102045");
+			viewHolder.tv_name.setText(infos.get(position).name);
+			viewHolder.tv_sex.setText(infos.get(position).sex);
+			viewHolder.tv_age.setText(infos.get(position).age+"岁");
+			viewHolder.tv_hos_no.setText((100102045+position)+"");
 		}else if(position%4 == 1){
 			viewHolder.iv_nursing_level_1.setVisibility(View.VISIBLE);
 			viewHolder.iv_enter_doctor_advice.setVisibility(View.VISIBLE);
@@ -86,10 +92,10 @@ public class MyPatientAdapter extends BaseAdapter{
 			
 			viewHolder.iv_nursing_level_1.setBackgroundResource(R.drawable.nurse_nursing_level_2);
 			viewHolder.tv_bedno.setText((1001+position)+"");
-			viewHolder.tv_name.setText("吴亚莉");
-			viewHolder.tv_sex.setText("女");
-			viewHolder.tv_age.setText("28");
-			viewHolder.tv_hos_no.setText("100102038");
+			viewHolder.tv_name.setText(infos.get(position).name);
+			viewHolder.tv_sex.setText(infos.get(position).sex);
+			viewHolder.tv_age.setText(infos.get(position).age+"岁");
+			viewHolder.tv_hos_no.setText((100102045+position)+"");
 		}else if(position%4 == 2){
 			viewHolder.iv_nursing_level_1.setVisibility(View.INVISIBLE);
 			viewHolder.iv_enter_doctor_advice.setVisibility(View.INVISIBLE);
@@ -102,10 +108,10 @@ public class MyPatientAdapter extends BaseAdapter{
 			
 			viewHolder.iv_nursing_level_1.setBackgroundResource(R.drawable.nurse_nursing_level_3);
 			viewHolder.tv_bedno.setText((1001+position)+"");
-			viewHolder.tv_name.setText("刘建国");
+			viewHolder.tv_name.setText(infos.get(position).name);
 			viewHolder.tv_sex.setText((1001+position)+"");
 			viewHolder.tv_age.setText(" 空闲");
-			viewHolder.tv_hos_no.setText("100102045");
+			viewHolder.tv_hos_no.setText((100102045+position)+"");
 		}else if(position%4 == 3){
 			viewHolder.iv_nursing_level_1.setVisibility(View.VISIBLE);
 			viewHolder.iv_enter_doctor_advice.setVisibility(View.VISIBLE);
@@ -118,10 +124,10 @@ public class MyPatientAdapter extends BaseAdapter{
 			
 			viewHolder.iv_nursing_level_1.setBackgroundResource(R.drawable.nurse_nursing_level_4);
 			viewHolder.tv_bedno.setText((1001+position)+"");
-			viewHolder.tv_name.setText("吴亚莉");
-			viewHolder.tv_sex.setText("女");
-			viewHolder.tv_age.setText("28");
-			viewHolder.tv_hos_no.setText("100102038");
+			viewHolder.tv_name.setText(infos.get(position).name);
+			viewHolder.tv_sex.setText(infos.get(position).sex);
+			viewHolder.tv_age.setText(infos.get(position).age+"岁");
+			viewHolder.tv_hos_no.setText((100102045+position)+"");
 		}
 		return convertView;
 	}

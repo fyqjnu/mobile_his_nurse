@@ -204,7 +204,7 @@ public class MainActivity extends  FragmentActivity implements OnClickListener{
 			
 			break;
 		case R.id.rl_nursing://护理记录
-			
+			startActivity(new Intent(this, SignsCollectActivity.class));
 			break;
 		}
 	}

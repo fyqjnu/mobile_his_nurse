@@ -203,10 +203,10 @@
             android:padding="10dp" >
 
             <TextView
-                style="@style/app_textStyle_white"
+                style="@style/app_medium_textStyle_white"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.0"
+                android:layout_weight="1.5"
                 android:gravity="center"
                 android:text="执行时间" />
 
@@ -218,7 +218,7 @@
                 android:background="@color/white" />
 
             <TextView
-                style="@style/app_textStyle_white"
+                style="@style/app_medium_textStyle_white"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
@@ -233,7 +233,7 @@
                 android:background="@color/white" />
 
             <TextView
-                style="@style/app_textStyle_white"
+                style="@style/app_medium_textStyle_white"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
@@ -248,7 +248,7 @@
                 android:background="@color/white" />
 
             <TextView
-                style="@style/app_textStyle_white"
+                style="@style/app_medium_textStyle_white"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
@@ -272,6 +272,7 @@
         android:gravity="center_vertical" >
 
         <com.his.nurse.widget.fbutton.FButton
+            android:visibility="gone"
             android:id="@+id/btn_confirm"
             style="@style/app_textStyle_white"
             android:layout_width="0dp"

@@ -81,15 +81,6 @@ public class DoctorAdviceInfoAdapter extends BaseAdapter{
 			}else{
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
-//		viewHolder.ll_yongfa.setGravity(Gravity.CENTER);
-//		viewHolder.tv_yongfa.measure(0, 0);
-//        int h = (int) (Math.max(viewHolder.tv_yongfa.getMeasuredWidth(), viewHolder.tv_yongfa.getMeasuredWidth()) + 10*mContext.getResources().getDisplayMetrics().density);
-//        viewHolder.ll_yongfa.getLayoutParams().width = h;
-//        viewHolder.ll_yongfa.getLayoutParams().height = h;
-//        ILog.d(h);
-//        
-//        Bitmap bg = createRoundBitmap(h, android.graphics.Color.parseColor("#00b4ff"));
-//        viewHolder.ll_yongfa.setBackgroundDrawable(new BitmapDrawable(bg));
 		viewHolder.tv_num.setText(status);
         if(position == 1){
         	viewHolder.tv_advice_name.setText("醒脑静注射液");
@@ -134,13 +125,4 @@ public class DoctorAdviceInfoAdapter extends BaseAdapter{
 		private TextView tv_num;
 	}
 	
-	private Bitmap createRoundBitmap(int d, int color) {
-        Bitmap bg = Bitmap.createBitmap(d, d, Config.ARGB_8888);
-        Canvas c = new Canvas(bg);
-        Paint p = new Paint();
-        p.setColor(color);
-        c.drawRoundRect(new RectF(new Rect(0, 0, d, d)), d/2, d/2, p);
-        return bg;
-    }
-
 }
