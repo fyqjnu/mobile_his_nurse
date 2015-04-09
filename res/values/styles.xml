@@ -62,28 +62,28 @@
     <!-- app content text medium 文本样式 -->
     <style name="app_medium_textStyle_black">
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">@dimen/textsize_medium</item>
     </style>
 
     <style name="app_medium_textStyle_white">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">@dimen/textsize_medium</item>
     </style>
 
 
     <!-- app content text small 文本样式 -->
     <style name="app_small_textStyle_black">
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
     </style>
 
     <style name="app_small_textStyle_white">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
     </style>
     <style name="sys_settings_tv">
          <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">@dimen/textsize_large</item>
         <item name="android:padding">10dp</item>
         <item name="android:background">@drawable/pressed_selector</item>
     </style>

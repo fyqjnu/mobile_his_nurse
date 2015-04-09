@@ -56,12 +56,12 @@ public class SearchView extends RelativeLayout implements OnClickListener {
         layout.setGravity(Gravity.CENTER_VERTICAL);
         layout.setBackgroundResource(R.drawable.search_bg);
         
-        etInput = new EditText(getContext());
+        etInput = new EditText(getContext(), null, R.style.app_small_textStyle_black);
         etInput.setId(1);
         
         etInput.setBackground(null);
         etInput.setHint(inputHint);
-        etInput.setTextSize(14);
+//        etInput.setTextSize(14);
        
         ivSearch = new ImageView(getContext());
         ivSearch.setImageResource(R.drawable.search);

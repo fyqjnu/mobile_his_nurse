@@ -2,6 +2,7 @@ package com.his.nurse.adapter;
 
 import java.util.List;
 
+import com.his.nurse.R;
 import com.his.nurse.entity.Patient;
 import com.his.nurse.widget.BottleView;
 
@@ -69,12 +70,13 @@ public class InfusionMonitorAdapter extends BaseAdapter {
 		public ItemView(Context context) {
 			super(context);
 			setOrientation(1);
+//			setBackgroundResource(R.color.item_background);
 			setGravity(Gravity.CENTER_HORIZONTAL);
 			bv = new BottleView(getContext());
 			addView(bv, -1, -2);
-			tvName = new TextView(getContext());
-			tvName.setTextSize(15);
-			tvName.setTextColor(Color.BLACK);
+			tvName = new TextView(getContext(),null,  R.style.app_medium_textStyle_black);
+//			tvName.setTextSize(15);
+//			tvName.setTextColor(Color.BLACK);
 			addView(tvName, -2, -2);
 			
 		}

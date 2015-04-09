@@ -23,16 +23,16 @@ public class BottleView extends View {
     
     private int progress;
     
-    private int bgColor = Color.GRAY;
+    private int bgColor = 0xffd6d6d6;
     
     private int progressColor = color_normal;
     
     //正常颜色
-    private static final int color_normal = Color.GREEN;
+    private static final int color_normal = 0xff3bbd59;
     //预警
-    private static final int color_warn = Color.YELLOW;
+    private static final int color_warn = 0xffff8500;
     //告警
-    private static final int color_danger = Color.RED;
+    private static final int color_danger = 0xfffd191a;
     
     public BottleView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
