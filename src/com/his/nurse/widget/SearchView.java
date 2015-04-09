@@ -3,6 +3,7 @@ package com.his.nurse.widget;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -56,12 +57,12 @@ public class SearchView extends RelativeLayout implements OnClickListener {
         layout.setGravity(Gravity.CENTER_VERTICAL);
         layout.setBackgroundResource(R.drawable.search_bg);
         
-        etInput = new EditText(getContext(), null, R.style.app_small_textStyle_black);
+        etInput = new EditText(getContext());
         etInput.setId(1);
         
         etInput.setBackground(null);
         etInput.setHint(inputHint);
-//        etInput.setTextSize(14);
+        etInput.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.textsize_small));
        
         ivSearch = new ImageView(getContext());
         ivSearch.setImageResource(R.drawable.search);
