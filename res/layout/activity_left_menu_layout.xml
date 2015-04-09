@@ -38,7 +38,7 @@
                         android:background="@drawable/nurse_menu_patient_info_icon" />
 
                     <TextView
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -201,7 +201,7 @@
                         android:background="@drawable/nurse_menu_check_drug_icon" />
 
                     <TextView
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

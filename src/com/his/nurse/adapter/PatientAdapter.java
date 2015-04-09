@@ -88,6 +88,7 @@ public class PatientAdapter extends BaseAdapter implements OnItemClickListener, 
             vf.addView(bottom);
             view = vf;
             vh = new ViewHolder();
+            vh.ll_nursing_level = (LinearLayout)view.findViewById(R.id.ll_nursing_level);
             vh.tvBedNum = (TextView) view.findViewById(R.id.item_patient_tv_bed_num);
             vh.tvDangerLevel = (TextView) view.findViewById(R.id.item_patient_tv_danger_level);
             vh.tvDays = (TextView) view.findViewById(R.id.item_patient_tv_days);
@@ -125,8 +126,16 @@ public class PatientAdapter extends BaseAdapter implements OnItemClickListener, 
             vh = (ViewHolder) view.getTag();
         }
         
+        
         int child = displayChildMap.get(position, new Integer(0));
         vh.vf.setDisplayedChild(child);
+        if(position%3==0){
+        	vh.ll_nursing_level.setBackgroundColor(android.graphics.Color.parseColor("#f75b5c"));
+        }else if(position%3 == 1){
+        	vh.ll_nursing_level.setBackgroundColor(android.graphics.Color.parseColor("#33a5fd"));
+        }else if(position%3 == 2){
+        	vh.ll_nursing_level.setBackgroundColor(android.graphics.Color.parseColor("#59ac2a"));
+        }
         
         Patient info = (Patient) getItem(position);
         vh.tvBedNum.setText(info.bedNum);
@@ -155,6 +164,8 @@ public class PatientAdapter extends BaseAdapter implements OnItemClickListener, 
     class ViewHolder {
         
         ViewFlipper vf;
+        
+        LinearLayout ll_nursing_level;
         
         TextView tvBedNum;
         TextView tvName;

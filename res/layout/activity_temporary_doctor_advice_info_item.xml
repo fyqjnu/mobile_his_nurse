@@ -124,21 +124,14 @@
             android:textColor="#7e7e7e"
             android:textSize="13dp" />
 
-        <ImageView
-            android:id="@+id/iv_doctor_advice_confirm"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/nurse_doctor_advice_confirm" />
-
         <TextView
             android:id="@+id/tv_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1/2"
+            android:text="已执行"
             android:textColor="#38c801"
             android:textSize="13dp"
-            android:visibility="gone" />
+            />
     </LinearLayout>
 
 </LinearLayout>

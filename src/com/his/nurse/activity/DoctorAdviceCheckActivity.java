@@ -31,6 +31,15 @@ public class DoctorAdviceCheckActivity extends BaseActivity{
 				finish();
 			}
 		});
+		
+		header.setRightImageViewRes(R.drawable.qr_code, new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		header.setTitle(getResources().getString(R.string.nurse_doctor_advice_check));
 	}
 }

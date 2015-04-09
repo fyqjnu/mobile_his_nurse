@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 
 import com.his.nurse.R;
 import com.his.nurse.util.DensityUtil;
+import com.his.nurse.util.ILog;
 import com.nineoldandroids.view.ViewHelper;
 
 public class LeftSlidingMenu extends HorizontalScrollView
@@ -119,14 +120,17 @@ public class LeftSlidingMenu extends HorizontalScrollView
 		// Up时，进行判断，如果显示区域大于菜单宽度一半则完全显示，否则隐藏
 		case MotionEvent.ACTION_UP:
 			int scrollX = getScrollX();
-			if (scrollX > mHalfMenuWidth)
+			ILog.d("scrollX->"+scrollX+"->"+mHalfMenuWidth*7/4);
+			if (scrollX > mHalfMenuWidth*15/8)
 			{
 				this.smoothScrollTo(mMenuWidth, 0);
 				isOpen = false;
+				mHalfMenuWidth = mMenuWidth/2;
 			} else
 			{
 				this.smoothScrollTo(0, 0);
 				isOpen = true;
+				mHalfMenuWidth = mMenuWidth/30;
 			}
 			return true;
 		}

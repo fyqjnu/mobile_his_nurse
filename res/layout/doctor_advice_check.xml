@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.his.nurse"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical" >
-    
+
     <com.his.nurse.widget.Header
         android:id="@+id/doctor_advice_check_header"
         android:layout_width="fill_parent"
@@ -143,11 +145,11 @@
                     android:textSize="14dp" />
 
                 <TextView
-                    android:layout_weight="1.0"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="250ml"
                     android:layout_marginLeft="3dp"
+                    android:layout_weight="1.0"
+                    android:text="250ml"
                     android:textColor="#7e7e7e"
                     android:textSize="14dp" />
             </LinearLayout>
@@ -165,6 +167,7 @@
                     android:textColor="@color/black"
                     android:textSize="14dp"
                     android:visibility="invisible" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -174,15 +177,125 @@
                     android:textSize="14dp" />
 
                 <TextView
-                    android:layout_weight="1.0"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="bid"
                     android:layout_marginLeft="3dp"
+                    android:layout_weight="1.0"
+                    android:text="bid"
                     android:textColor="#7e7e7e"
                     android:textSize="14dp" />
             </LinearLayout>
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1.0"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nurse_form_top_title_corner"
+            android:gravity="center_vertical"
+            android:padding="10dp" >
+
+            <TextView
+                style="@style/app_textStyle_white"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="执行时间" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/white" />
+
+            <TextView
+                style="@style/app_textStyle_white"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="核对结果" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/white" />
+
+            <TextView
+                style="@style/app_textStyle_white"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="执行人" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/white" />
+
+            <TextView
+                style="@style/app_textStyle_white"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="备注" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/nurse_form_bottom_content_corner" >
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center_vertical" >
+
+        <com.his.nurse.widget.fbutton.FButton
+            android:id="@+id/btn_confirm"
+            style="@style/app_textStyle_white"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1.0"
+            android:text="确定"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            app:buttonColor="#1ebf7c"
+            app:cornerRadius="3dp"
+            app:shadowEnabled="false" />
+        
+        <com.his.nurse.widget.fbutton.FButton
+            android:id="@+id/btn_no_give"
+            style="@style/app_textStyle_white"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1.0"
+            android:text="未给药"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            app:buttonColor="#969696"
+            app:cornerRadius="3dp"
+            app:shadowEnabled="false" />
     </LinearLayout>
 
 </LinearLayout>

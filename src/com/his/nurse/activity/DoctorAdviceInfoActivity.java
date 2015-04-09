@@ -57,19 +57,22 @@ public class DoctorAdviceInfoActivity extends BaseActivity {
 		viewpager = (ViewPager)findViewById(R.id.viewpager);
 		views = new ArrayList<View>();
 		View view1 = getLayoutInflater().inflate(R.layout.activity_current_doctor_advice, null);
-		View view2 = getLayoutInflater().inflate(R.layout.activity_current_doctor_advice, null);
-		View view3 = getLayoutInflater().inflate(R.layout.activity_current_doctor_advice, null);
+		View view2 = getLayoutInflater().inflate(R.layout.activity_changqi_doctor_advice, null);
+		View view3 = getLayoutInflater().inflate(R.layout.activity_linshi_doctor_advice, null);
+		View view4 = getLayoutInflater().inflate(R.layout.activity_yiting_doctor_advice, null);
 		initCurrentDoctorAdviceList(view1,6);
-		initCurrentDoctorAdviceList(view2,9);
-		initCurrentDoctorAdviceList(view3,3);
+		initDoctorAdviceList(view2,9,"已执行");
+		initDoctorAdviceList(view3,3,"已执行");
+		initDoctorAdviceList(view4,2,"已停止");
 		views.add(view1);
 		views.add(view2);
 		views.add(view3);
+		views.add(view4);
 		viewpager.setAdapter(new MyPagerAdapter(views));
 		viewpager.setOnPageChangeListener(onPageChangeListener);
 		
 		doctor_advice_tab_indicator = (TabIndicator)findViewById(R.id.doctor_advice_tab_indicator);
-		doctor_advice_tab_indicator.setTabTitle(new String[]{"当日医嘱","长期医嘱","临时医嘱"});
+		doctor_advice_tab_indicator.setTabTitle(new String[]{"医嘱待办","长期医嘱","临时医嘱","已停医嘱"});
 		doctor_advice_tab_indicator.setCurrentItem(viewpager.getCurrentItem());
 		doctor_advice_tab_indicator.setViewPager(viewpager);
 	};
@@ -103,7 +106,64 @@ public class DoctorAdviceInfoActivity extends BaseActivity {
 		final ImageView iv_yesterday = (ImageView)view.findViewById(R.id.iv_yesterday);
 		jazzyListView = (JazzyListView)view.findViewById(R.id.listview);
 		jazzyListView.setTransitionEffect(JazzyHelper.SLIDE_IN);
-		final DoctorAdviceInfoAdapter doctorAdviceInfoAdapter = new DoctorAdviceInfoAdapter(this);
+		final DoctorAdviceInfoAdapter doctorAdviceInfoAdapter = new DoctorAdviceInfoAdapter(this,R.layout.activity_doctor_advice_info_item,"1/2");
+		doctorAdviceInfoAdapter.setSize(size);
+		jazzyListView.setAdapter(doctorAdviceInfoAdapter);
+		
+		jazzyListView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(DoctorAdviceInfoActivity.this,DoctorAdviceCheckActivity.class);
+				startActivity(intent);
+			}
+		});
+		
+		btn_today.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if(iv_today.getVisibility() == View.INVISIBLE){
+					ILog.d("今日医嘱");
+					btn_today.setButtonColor(android.graphics.Color.parseColor("#ff9000"));
+					btn_yesterday.setButtonColor(android.graphics.Color.parseColor("#989898"));
+					iv_today.setVisibility(View.VISIBLE);
+					iv_yesterday.setVisibility(View.INVISIBLE);
+					doctorAdviceInfoAdapter.setSize(6);
+					doctorAdviceInfoAdapter.notifyDataSetChanged();
+				}
+			}
+		});
+		
+		btn_yesterday.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if(iv_yesterday.getVisibility() == View.INVISIBLE){
+					ILog.d("昨天医嘱");
+					btn_today.setButtonColor(android.graphics.Color.parseColor("#989898"));
+					btn_yesterday.setButtonColor(android.graphics.Color.parseColor("#ff9000"));
+					iv_today.setVisibility(View.INVISIBLE);
+					iv_yesterday.setVisibility(View.VISIBLE);
+					doctorAdviceInfoAdapter.setSize(4);
+					doctorAdviceInfoAdapter.notifyDataSetChanged();
+				}
+			}
+		});
+	}
+	
+	private void initDoctorAdviceList(View view,int size,String status){
+		final FButton btn_today = (FButton)view.findViewById(R.id.btn_today);
+		final ImageView iv_today = (ImageView)view.findViewById(R.id.iv_today);
+		final FButton btn_yesterday = (FButton)view.findViewById(R.id.btn_yesterday);
+		final ImageView iv_yesterday = (ImageView)view.findViewById(R.id.iv_yesterday);
+		jazzyListView = (JazzyListView)view.findViewById(R.id.listview);
+		jazzyListView.setTransitionEffect(JazzyHelper.SLIDE_IN);
+		final DoctorAdviceInfoAdapter doctorAdviceInfoAdapter = new DoctorAdviceInfoAdapter(this,R.layout.activity_temporary_doctor_advice_info_item,status);
 		doctorAdviceInfoAdapter.setSize(size);
 		jazzyListView.setAdapter(doctorAdviceInfoAdapter);
 		
@@ -130,11 +190,12 @@ public class DoctorAdviceInfoActivity extends BaseActivity {
 					iv_today.setVisibility(View.VISIBLE);
 					iv_yesterday.setVisibility(View.INVISIBLE);
 					if(viewpager.getCurrentItem() == 0){
-						doctorAdviceInfoAdapter.setSize(6);
 					}else if(viewpager.getCurrentItem() == 1){
 						doctorAdviceInfoAdapter.setSize(9);
 					}else if(viewpager.getCurrentItem() == 2){
 						doctorAdviceInfoAdapter.setSize(3);
+					}else if(viewpager.getCurrentItem() == 3){
+						doctorAdviceInfoAdapter.setSize(2);
 					}
 					doctorAdviceInfoAdapter.notifyDataSetChanged();
 				}
@@ -153,11 +214,12 @@ public class DoctorAdviceInfoActivity extends BaseActivity {
 					iv_today.setVisibility(View.INVISIBLE);
 					iv_yesterday.setVisibility(View.VISIBLE);
 					if(viewpager.getCurrentItem() == 0){
-						doctorAdviceInfoAdapter.setSize(4);
 					}else if(viewpager.getCurrentItem() == 1){
 						doctorAdviceInfoAdapter.setSize(5);
 					}else if(viewpager.getCurrentItem() == 2){
 						doctorAdviceInfoAdapter.setSize(2);
+					}else if(viewpager.getCurrentItem() == 3){
+						doctorAdviceInfoAdapter.setSize(1);
 					}
 					doctorAdviceInfoAdapter.notifyDataSetChanged();
 				}

@@ -36,14 +36,14 @@ public class Header extends RelativeLayout {
     
     private void init() {
          setBackgroundColor(0xff54d091);
-         int p = (int) (getResources().getDisplayMetrics().density * 10);
+         int p = (int) (getResources().getDisplayMetrics().density * 5);
          setPadding(p, p, p, p);
     }
     
     public void setTitle(String text) {
         ILog.d("设置标题：" + text); 
         TextView tv = new TextView(getContext());
-        tv.setTextSize(23);
+        tv.setTextSize(22);
         tv.setTextColor(Color.WHITE);
         tv.setText(text);
         tv.getPaint().setFakeBoldText(true);

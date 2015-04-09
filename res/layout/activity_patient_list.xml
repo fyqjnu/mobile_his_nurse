@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/activity_bg"
-    android:orientation="vertical" >
+    android:orientation="vertical" xmlns:app="http://schemas.android.com/apk/res/com.his.nurse">
 
     <com.his.nurse.widget.Header
         android:id="@+id/patient_list_header"
@@ -16,11 +16,16 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
     </com.his.nurse.widget.SearchView>
-    <ListView 
+    <com.his.nurse.widget.jazzylistview.JazzyListView 
         android:id="@+id/patient_list_listview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:dividerHeight="@dimen/listview_diverder_height"
-        ></ListView>
+        app:effect="slide_in"
+        app:only_animate_new_items="false"
+        app:only_animate_fling="false"
+        app:max_velocity="0">
+        
+    </com.his.nurse.widget.jazzylistview.JazzyListView>
 
 </LinearLayout>

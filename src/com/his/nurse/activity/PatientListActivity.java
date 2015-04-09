@@ -13,6 +13,7 @@ import com.his.nurse.R;
 import com.his.nurse.adapter.PatientAdapter;
 import com.his.nurse.entity.Patient;
 import com.his.nurse.widget.Header;
+import com.his.nurse.widget.jazzylistview.JazzyListView;
 
 /**
  * 病人列表
@@ -41,7 +42,7 @@ public class PatientListActivity extends BaseActivity {
             }
         });
         
-        ListView lvPatient = (ListView) findViewById(R.id.patient_list_listview);
+        JazzyListView lvPatient = (JazzyListView) findViewById(R.id.patient_list_listview);
         List<Patient> list = getPatientInfo();
         PatientAdapter adapter = new PatientAdapter(this, list);
         lvPatient.setAdapter(adapter);

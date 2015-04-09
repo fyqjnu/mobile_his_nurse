@@ -24,9 +24,13 @@ public class DoctorAdviceInfoAdapter extends BaseAdapter{
 	private Context mContext;
 	private LayoutInflater inflater;
 	private int size;
-	public DoctorAdviceInfoAdapter(Context context){
+	private int layoutRes;
+	private String status;
+	public DoctorAdviceInfoAdapter(Context context,int layout,String status){
 		this.mContext = context;
 		this.inflater = LayoutInflater.from(context);
+		this.layoutRes = layout;
+		this.status = status;
 	}
 
 	public int getSize() {
@@ -60,8 +64,8 @@ public class DoctorAdviceInfoAdapter extends BaseAdapter{
 		// TODO Auto-generated method stub
 		final int selectId = position;
 		ViewHolder viewHolder = null;
-//		if(convertView == null){
-			convertView = inflater.inflate(R.layout.activity_doctor_advice_info_item, null);
+		if(convertView == null){
+			convertView = inflater.inflate(layoutRes, null);
 			viewHolder = new ViewHolder();
 			viewHolder.tv_yongfa = (TextView)convertView.findViewById(R.id.tv_yongfa);
 			viewHolder.ll_yongfa = (LinearLayout)convertView.findViewById(R.id.ll_yongfa);
@@ -69,29 +73,52 @@ public class DoctorAdviceInfoAdapter extends BaseAdapter{
 			viewHolder.tv_advice_guige = (TextView)convertView.findViewById(R.id.tv_advice_guige);
 			viewHolder.tv_advice_yongliang = (TextView)convertView.findViewById(R.id.tv_advice_yongliang);
 			viewHolder.tv_advice_give_way = (TextView)convertView.findViewById(R.id.tv_advice_give_way);
-			viewHolder.iv_doctor_advice_confirm = (ImageView)convertView.findViewById(R.id.iv_doctor_advice_confirm);
-//			convertView.setTag(viewHolder);
-			/*}else{
+			if(R.layout.activity_doctor_advice_info_item == layoutRes){
+				viewHolder.iv_doctor_advice_confirm = (ImageView)convertView.findViewById(R.id.iv_doctor_advice_confirm);
+			}
+			viewHolder.tv_num = (TextView) convertView.findViewById(R.id.tv_num);
+			convertView.setTag(viewHolder);
+			}else{
 			viewHolder = (ViewHolder) convertView.getTag();
-		}*/
-		viewHolder.ll_yongfa.setGravity(Gravity.CENTER);
-		viewHolder.tv_yongfa.measure(0, 0);
-        int h = (int) (Math.max(viewHolder.tv_yongfa.getMeasuredWidth(), viewHolder.tv_yongfa.getMeasuredWidth()) + 10*mContext.getResources().getDisplayMetrics().density);
-        viewHolder.ll_yongfa.getLayoutParams().width = h;
-        viewHolder.ll_yongfa.getLayoutParams().height = h;
-        ILog.d(h);
-        
-        Bitmap bg = createRoundBitmap(h, android.graphics.Color.parseColor("#00b4ff"));
-        viewHolder.ll_yongfa.setBackgroundDrawable(new BitmapDrawable(bg));
-        
+		}
+//		viewHolder.ll_yongfa.setGravity(Gravity.CENTER);
+//		viewHolder.tv_yongfa.measure(0, 0);
+//        int h = (int) (Math.max(viewHolder.tv_yongfa.getMeasuredWidth(), viewHolder.tv_yongfa.getMeasuredWidth()) + 10*mContext.getResources().getDisplayMetrics().density);
+//        viewHolder.ll_yongfa.getLayoutParams().width = h;
+//        viewHolder.ll_yongfa.getLayoutParams().height = h;
+//        ILog.d(h);
+//        
+//        Bitmap bg = createRoundBitmap(h, android.graphics.Color.parseColor("#00b4ff"));
+//        viewHolder.ll_yongfa.setBackgroundDrawable(new BitmapDrawable(bg));
+		viewHolder.tv_num.setText(status);
         if(position == 1){
         	viewHolder.tv_advice_name.setText("醒脑静注射液");
         	viewHolder.tv_advice_guige.setText("10ml*1支");
         	viewHolder.tv_advice_yongliang.setText("20ml");
         	viewHolder.tv_advice_give_way.setText("口服");
-        	viewHolder.iv_doctor_advice_confirm.setVisibility(View.INVISIBLE);
+        	if(R.layout.activity_doctor_advice_info_item == layoutRes){
+        		viewHolder.iv_doctor_advice_confirm.setVisibility(View.INVISIBLE);
+        	}
         }else{
-        	viewHolder.iv_doctor_advice_confirm.setVisibility(View.VISIBLE);
+        	if(R.layout.activity_doctor_advice_info_item == layoutRes){
+        		viewHolder.iv_doctor_advice_confirm.setVisibility(View.VISIBLE);
+        	}
+        }
+        
+        if(position%3 == 0){
+        	viewHolder.tv_num.setVisibility(View.VISIBLE);
+        	if(R.layout.activity_doctor_advice_info_item == layoutRes){
+        		viewHolder.iv_doctor_advice_confirm.setVisibility(View.GONE);
+        	}
+        	viewHolder.tv_yongfa.setText("BID");
+        }else{
+        	viewHolder.tv_num.setVisibility(View.GONE);
+        	if(R.layout.activity_doctor_advice_info_item == layoutRes){
+        		viewHolder.iv_doctor_advice_confirm.setVisibility(View.VISIBLE);
+        	}else if(R.layout.activity_temporary_doctor_advice_info_item == layoutRes){
+        		viewHolder.tv_num.setVisibility(View.VISIBLE);
+        	}
+        	viewHolder.tv_yongfa.setText("QD");
         }
 		return convertView;
 	}
@@ -104,6 +131,7 @@ public class DoctorAdviceInfoAdapter extends BaseAdapter{
 		private TextView tv_yongfa;
 		private LinearLayout ll_yongfa;
 		private ImageView iv_doctor_advice_confirm;
+		private TextView tv_num;
 	}
 	
 	private Bitmap createRoundBitmap(int d, int color) {
