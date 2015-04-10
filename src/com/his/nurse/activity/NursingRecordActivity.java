@@ -10,6 +10,10 @@ import android.webkit.WebViewClient;
 import com.his.nurse.R;
 import com.his.nurse.widget.Header;
 
+/**
+ * @author gordon
+ * 添加护理记录界面
+ */
 public class NursingRecordActivity extends BaseActivity {
     
     private static final String url = "http://www.sojump.com/jq/4705709.aspx";

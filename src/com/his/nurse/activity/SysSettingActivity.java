@@ -7,6 +7,9 @@ import com.his.nurse.widget.Header;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -111,6 +114,21 @@ public class SysSettingActivity extends BaseFragment implements OnClickListener{
 
     private void clearMemory() {
         
+    }
+    
+    /**
+     * 取出当前版本
+     * @return
+     */
+    private int getCurrentVersion() {
+        PackageManager pm = act.getPackageManager();
+        try {
+            PackageInfo info = pm.getPackageInfo(act.getPackageName(), PackageManager.GET_GIDS);
+            return info.versionCode;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     private void checkUpdate() {

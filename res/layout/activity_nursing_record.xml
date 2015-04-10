@@ -12,12 +12,6 @@
         
     </com.his.nurse.widget.Header>
     
-     <include 
-         layout="@layout/include_patient_basic_info_top"
-         android:layout_height="wrap_content"
-         android:layout_width="fill_parent"
-         />
-
      <WebView
          android:id="@+id/nursing_record_wv"
          android:layout_width="match_parent"

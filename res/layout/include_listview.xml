@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <com.his.nurse.widget.jazzylistview.JazzyListView
+        
+         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res/com.his.nurse"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:listSelector="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@null"
+        android:dividerHeight="@dimen/item_vertical_space"
+        android:scrollbars="none"
+        app:effect="slide_in"
+        app:only_animate_new_items="false"
+        app:only_animate_fling="false"
+        app:max_velocity="0">
+        
+    </com.his.nurse.widget.jazzylistview.JazzyListView>
+

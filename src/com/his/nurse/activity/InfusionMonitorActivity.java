@@ -81,7 +81,7 @@ public class InfusionMonitorActivity extends BaseFragment implements OnItemClick
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         View v = LayoutInflater.from(act).inflate(R.layout.dialog_bottle_clicked, null);
-        int w = (int) (DensityUtil.getScreenWidth(act)*0.7f);
+        int w = (int) (DensityUtil.getScreenWidth(act)*0.8f);
         ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(w, -2);
         dialog.setContentView(v, lp);
         dialog.show();
