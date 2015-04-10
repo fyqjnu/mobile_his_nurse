@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -15,6 +16,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.his.nurse.R;
+import com.his.nurse.adapter.CheckDrugAdapter;
 import com.his.nurse.adapter.PatientAdapter;
 import com.his.nurse.adapter.SimplePageAdapter;
 import com.his.nurse.entity.Patient;
@@ -23,6 +25,9 @@ import com.his.nurse.util.ILog;
 import com.his.nurse.widget.Header;
 import com.his.nurse.widget.SearchView;
 import com.his.nurse.widget.SearchView.ISearchListener;
+import com.his.nurse.widget.jazzylistview.JazzyGridView;
+import com.his.nurse.widget.jazzylistview.JazzyHelper;
+import com.his.nurse.widget.jazzylistview.JazzyListView;
 import com.his.nurse.widget.tab.TabIndicator;
 
 /**
@@ -66,37 +71,17 @@ public class CheckDrugActivity extends BaseActivity implements OnItemClickListen
             lv.setTag(title);
             views.add(lv);
             lv.setOnItemClickListener(this);
-            lv.setAdapter(new PatientAdapter(this, getPatientInfo()));
+            lv.setAdapter(new CheckDrugAdapter(this));
         }
         pager.setAdapter(new SimplePageAdapter(views));
         pager.setOnPageChangeListener(this);
         tabIndicator.setCurrentItem(pager.getCurrentItem());
     }
-    private List<Patient> getPatientInfo() {
-        Random r = new Random();
-        List<Patient> list = new ArrayList<Patient>();
-        for (int i=0; i<10;i++) {
-            Patient p = new Patient();
-            p.age = 20 + r.nextInt(40);
-            p.name = "姓名 " + i;
-            p.bedNum = "1002";
-            p.dangerType = "无危重情况";
-            p.daysInHospital = 1 + r.nextInt(100);
-            p.doctorName = "小红";
-            p.foodType = "清淡食物";
-            p.id = "100024";
-            p.illType = "肝炎";
-            p.payType = "广州医保";
-            p.priority = "一级护理";
-            p.sex = r.nextInt(2)==1?"男":"女";
-            list.add(p);
-        }
-        return list;
-    }
     
     private ListView createListView() {
-        ListView lv = new ListView(this);
-        lv.setDividerHeight(DensityUtil.dip2px(this, 4));
+        JazzyListView lv = new JazzyListView(this);
+        lv.setTransitionEffect(JazzyHelper.SLIDE_IN);
+        lv.setDividerHeight(getResources().getDimensionPixelSize(R.dimen.item_vertical_space));
         SearchView searchView = new SearchView(this);
         searchView.setSearchListener(this);
         lv.addHeaderView(searchView);
@@ -108,6 +93,8 @@ public class CheckDrugActivity extends BaseActivity implements OnItemClickListen
             long id) {
         Object tag = parent.getTag();
         ILog.d("点击：" + tag);
+        
+        Intent intent = new Intent(this, CheckDrugDetailActivity.class);
         if (titles[0].equals(tag)) {
             //
         } else if (titles[1].equals(tag)) {
@@ -115,6 +102,7 @@ public class CheckDrugActivity extends BaseActivity implements OnItemClickListen
         } else if (titles[2].equals(tag)) {
             
         }
+        startActivity(intent);
     }
 
     @Override
