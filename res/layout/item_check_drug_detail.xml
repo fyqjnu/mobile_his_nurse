@@ -30,7 +30,7 @@
         android:id="@+id/item_check_drug_detail_cb_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:button="@drawable/checkbox"
+        android:button="@drawable/nurse_radiobutton_style_selector"
         android:checked="true"
         />
 
